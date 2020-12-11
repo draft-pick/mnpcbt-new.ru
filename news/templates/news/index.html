@@ -1,0 +1,32 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <div class="container mt-5">
+    {% for i in news %}
+              <section class="dark-grey-text">
+                <div class="row align-items-center text-justify">
+                  <div class="col-lg-5 col-xl-4">
+                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 img-fluid">
+                         {% if i.image_title %}
+                             <img class="card-img-top img-fluid" src="{{ i.image_title.url }}">
+                         {% else %}
+                             <img class="card-img-top img-fluid" src="/media/no_image.jpg" alt="">
+                         {% endif %}
+                      <a href="{{ i.get_absolute_url }}">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-7 col-xl-8">
+                      <a href="{{ i.get_absolute_url }}">
+                        <h4 class="font-weight-bold mb-3"><strong>{{ i.title }}</strong></h4>
+                        <p class="dark-grey-text">{{ i.anons }}</p>
+                        <p class="text-secondary font-weight-bold"><i class="fas fa-calendar-week"></i> {{ i.created_at }}</p>
+                        <div class="btn btn-secondary btn-md mx-0 btn-rounded">...Читать полностью...</div>
+                      </a>
+                  </div>
+                </div>
+                <hr class="my-5">
+              </section>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'inc/_containerPage.html' %}
+    {% block contentPage %}
+        <div class="row">
+        {% for doc in doctors %}
+            <div class="col-12 col-lg-4">
+                <a href="{{ doc.get_absolute_url }}">
+                    <div class="card mb-3">
+                      <div class="view overlay">
+                          {% if doc.image %}
+                              <img class="card-img-top" src="{{ doc.image.url }}" alt="">
+                          {% else %}
+                               <img class="card-img-top" src="/media/no_image.jpg" alt="">
+                          {% endif %}
+                      </div>
+                      <div class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"><i
+                          class="fas fa-chevron-right pl-1"></i></div>
+                      <div class="card-body">
+                        <h5 class="card-title">{{ doc.title }}</h5>
+                        <hr>
+                        <p class="card-text">{{ doc.position }}</p>
+                      </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    {% endblock %}
