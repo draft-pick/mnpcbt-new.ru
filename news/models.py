@@ -4,7 +4,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class News(models.Model):
-    title = models.CharField(max_length=150, verbose_name='Наименование')
+    title = models.CharField(max_length=250, verbose_name='Наименование')
     anons = models.TextField(blank=True, verbose_name='Анонс')
     content = RichTextUploadingField(blank=True, verbose_name='Контент')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
