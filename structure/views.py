@@ -19,20 +19,12 @@ def view_branch(request, branch_id):
     image = GalleryBranches.objects.filter(keyBranches=branch_id)
     image_map = GalleryBranches.objects.filter(location_map=1, keyBranches=branch_id)
     specialists = Specialists.objects.filter(keyBranches=branch_id)
-    paginator_spec = Paginator(specialists, 5)
-    page = request.GET.get('page')
-    try:
-        contacts = paginator_spec.page(page)
-    except PageNotAnInteger:
-        contacts = paginator_spec.page(1)
-    except EmptyPage:
-        contacts = paginator_spec.page(paginator_spec.num_pages)
     return render(request, 'structure/view_branches.html', {'branches_item': branches_item,
                                                             'title': branches_item.name,
                                                             'image': image,
                                                             'image_map': image_map,
                                                             "specialists": specialists,
-                                                            "contacts": contacts})
+                                                            })
 
 
 def specialists(request):
