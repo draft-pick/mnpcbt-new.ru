@@ -3,7 +3,7 @@ from .models import *
 
 
 def index(request):
-    news = News.objects.all()
+    news = News.objects.order_by('-created_at')
     image = GalleryNews.objects.all()
     context = {
         'news': news,

@@ -7,6 +7,7 @@ class Branches(models.Model):
     name = models.CharField(max_length=250, verbose_name='Наименование')
     amb_help = RichTextUploadingField(blank=True, verbose_name="Амбулаторная помощь")
     stac_help = RichTextUploadingField(blank=True, verbose_name="Стационарная помощь")
+    address = models.CharField(blank=True, max_length=500, verbose_name="Адрес")
     tel_cnt_br = models.CharField(blank=True, max_length=200, verbose_name="Телефоны контакта филиала")
     tel_hotline = models.CharField(blank=True, max_length=100, verbose_name="Горячая линия")
     secretary = models.CharField(blank=True, max_length=200, verbose_name="Секретарь тел./факс")
