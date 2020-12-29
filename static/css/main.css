@@ -149,6 +149,9 @@ strong {
     font-size: 30px;
 }
 @media screen and (max-width: 960px){
+    .title-text {
+        color: #0E2231;
+    }
     .title-text h1{
         font-size: 14px;
     }
@@ -201,4 +204,18 @@ strong {
     height: 100%;
     border-width: 0;
     outline-width: 0;
+}
+
+/*Оформление HREF*/
+a[href$='.doc'], a[href$='.docx'] {
+    background: url('/media/icons/word.png') no-repeat 100%;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+a[href$='.pdf'] {
+    background: url('/media/icons/pdf.png') no-repeat 100%;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
 }
