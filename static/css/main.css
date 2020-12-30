@@ -65,7 +65,7 @@ strong {
     font-size: 18px;
 }
 .left-mm .nav-item:nth-child(1) a:before {
-    content: '\f19d';
+    content: '\f1ea';
     font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
     font-weight: 900;
     background: rgba(32,201,151,.4);
@@ -79,7 +79,7 @@ strong {
     font-size: 30px;
 }
 .left-mm .nav-item:nth-child(2) a:before {
-    content: '\f51c';
+    content: '\f82f';
     font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
     font-weight: 900;
     background: rgba(232,62,140,.4);
@@ -93,7 +93,7 @@ strong {
     font-size: 25px;
 }
 .left-mm .nav-item:nth-child(3) a:before {
-    content: '\e067';
+    content: '\f086';
     font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
     font-weight: 900;
     background: rgba(253,126,20,.4);
@@ -107,7 +107,7 @@ strong {
     font-size: 30px;
 }
 .left-mm .nav-item:nth-child(4) a:before {
-    content: '\f82f';
+    content: '\f4ad';
     font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
     font-weight: 900;
     background: rgba(220,53,69,.4);
@@ -175,6 +175,10 @@ strong {
     content: "|";
 }
 
+.contacts-area {
+    background-color: #F2F2F2;
+}
+
 .news-area {
     background-color: #F2F2F2;
 }
@@ -182,6 +186,12 @@ strong {
     font-size: 50px;
 }
 .news-area a {
+    color: #45526e !important;
+}
+.branches-area {
+    color: #45526e !important;
+}
+.branches-area a {
     color: #45526e !important;
 }
 
