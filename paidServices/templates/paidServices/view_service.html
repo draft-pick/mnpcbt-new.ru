@@ -1,0 +1,23 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">№п/п</th>
+          <th scope="col">Код услуги</th>
+          <th scope="col">Наименование медицинской услуги</th>
+          <th scope="col">Цена</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for serv in service_item %}
+            <tr>
+                <th>{{ serv.number }}</th>
+                <th>{{ serv.code }}</th>
+                <th>{{ serv.name }}</th>
+                <th>{{ serv.price }}</th>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

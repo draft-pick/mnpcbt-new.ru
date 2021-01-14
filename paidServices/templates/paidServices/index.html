@@ -1,0 +1,7 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+
+    {% for ps in pscategory %}
+        <h4><a href="{{ ps.get_absolute_url }}">{{ ps.nameC }}</a></h4>
+    {% endfor %}
+{% endblock %}

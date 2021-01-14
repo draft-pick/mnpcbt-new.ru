@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'regularPages.apps.RegularpagesConfig',
     'needToKnow.apps.NeedtoknowConfig',
     'videoclips.apps.VideoclipsConfig',
+    'paidServices.apps.PaidservicesConfig',
 ]
 
 MIDDLEWARE = [

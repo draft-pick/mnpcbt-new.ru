@@ -1,0 +1,6 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% for psu in psupcat_item %}
+        <h4><a href="{{ psu.get_service_url }}">{{ psu.nameUC }}</a></h4>
+    {% endfor %}
+{% endblock %}
