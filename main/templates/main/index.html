@@ -218,13 +218,13 @@
                                   <p class="card-text"><i class="far fa-clock pr-2"></i>{{ i.created_at|date:"d E Y"}}</p>
                                 </div>
                               </div>
-                              <div class="view overlay text-center">
-                                {% if i.image_title %}
-                                    <img class="img-fluid" src="{{ i.image_title.url }}" alt="">
-                                {% else %}
-                                    <img class="img-fluid" src="/media/logo-main.png" alt="">
-                                {% endif %}
-                              </div>
+{#                              <div class="view overlay text-center">#}
+{#                                {% if i.image_title %}#}
+{#                                    <img class="img-fluid" src="{{ i.image_title.url }}" alt="">#}
+{#                                {% else %}#}
+{#                                    <img class="img-fluid" src="/media/logo-main.png" alt="">#}
+{#                                {% endif %}#}
+{#                              </div>#}
                               <div class="card-body">
                                 <div class="collapse-content">
     {#                              <p class="card-text">{{ i.anons }}</p>#}
@@ -291,7 +291,7 @@
                               <div class="text-sea-color">{{ r.name }}</div>
                             </h5>
                             <div class="story">
-                                {{ r.content }}
+                                {{ r.content|safe }}
                             </div>
                           </div>
                         </div>

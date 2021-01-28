@@ -32,6 +32,7 @@ urlpatterns = [
     path('regularPages/', include('regularPages.url')),
     path('needToKnow/', include('needToKnow.url')),
     path('videoclips/', include('videoclips.url')),
+    path('services/', include('services.url')),
     path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

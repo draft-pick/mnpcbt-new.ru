@@ -1,0 +1,51 @@
+{% extends 'services/base_services.html' %}
+{% block title %}
+    {{ category }}
+{% endblock %}
+{% block content %}
+    <h1 class="text-secondary mb-3 title-text">{{ category }}</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Платные услуги</a></li>
+            {% for cat in ancestors %}
+                <li class="breadcrumb-item"><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a></li>
+            {% endfor %}
+            <li class="breadcrumb-item active" aria-current="page">{{ category }}</li>
+        </ol>
+    </nav>
+    {% if children %}
+        {% for child in children %}
+            <ul class="list-group-flush">
+
+                <li class="list-group-item">
+                    <a href="{{ child.get_absolute_url }}">
+                        <p class="mb-0"><i class="fab fa-instagram fa-2x mr-4 blue p-3 white-text rounded "
+                                           aria-hidden="true"></i>{{ child.name }}</p>
+                    </a>
+                </li>
+
+            </ul>
+        {% endfor %}
+    {% else %}
+        {% for service in services %}
+            <div class="col-12 mb-4">
+                <div class="card z-depth-2">
+                    <div class="card-body p-0">
+                        <div class="row mx-0">
+                            <div class="col-md-8 grey lighten-4 rounded-left pt-4">
+                                <h5 class="font-weight-bold">{{ service.name }}</h5>
+                                <p class="font-weight-light text-muted mb-4">{{ service.code }}</p>
+                            </div>
+                            <div class="col-md-4 text-center pt-4">
+                                <p class="h1 font-weight-normal">{{ service.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% empty %}
+            <p>В стадии формирования...1</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

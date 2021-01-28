@@ -1,0 +1,24 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <section class="my-5">
+        {% for r in reviews %}
+            <!-- Card header -->
+            <div class="card-header border-0 font-weight-bold d-flex justify-content-between">
+                <p class="mr-4 mb-0 text-sea-color"><i class="fas fa-calendar mr-2"></i>{{ r.date }}</p>
+            </div>
+
+            <div class="media mt-4 px-1 text-md-left">
+                <img class="card-img-100 d-flex z-depth-1 mr-3" src="/media/user.png">
+                <div class="media-body">
+                    <h5 class="font-weight-bold mt-0">
+                        <div class="text-sea-color">{{ r.name }}</div>
+                    </h5>
+                    <div class="story">
+                        {{ r.content|safe }}
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </section>
+{% endblock %}

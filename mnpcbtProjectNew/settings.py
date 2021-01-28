@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'sitetree',
+    'mptt',
     'main.apps.MainConfig',
     'news.apps.NewsConfig',
     'articles.apps.ArticlesConfig',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'regularPages.apps.RegularpagesConfig',
     'needToKnow.apps.NeedtoknowConfig',
     'videoclips.apps.VideoclipsConfig',
+    'services.apps.ServicesConfig',
 ]
 
 MIDDLEWARE = [
