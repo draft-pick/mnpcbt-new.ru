@@ -3,11 +3,6 @@ from import_export.admin import ImportExportModelAdmin
 from .models import *
 
 
-# class NewsAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'created_at', 'updated_at', 'is_published')
-#     list_display_links = ('title', 'created_at', 'updated_at', 'is_published')
-#     search_fields = ('title', 'anons', 'content')
-
 class GalleryInline(admin.TabularInline):
     fk_name = 'keyBranches'
     model = GalleryBranches
@@ -32,10 +27,10 @@ class BranchesAdmin(admin.ModelAdmin):
 
 
 @admin.register(Specialists)
-class ViewAdmin(ImportExportModelAdmin):
+class SpecialistsAdmin(admin.ModelAdmin):
     list_display = ('keyBranches', 'surname', 'name', 'patronymic')
     list_display_links = ('keyBranches', 'surname', 'name', 'patronymic')
     search_fields = ('keyBranches', 'surname', 'name')
-    pass
+
 
 

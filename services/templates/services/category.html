@@ -18,38 +18,18 @@
             <button type="button" class="btn btn-secondary btn-rounded">Всего категорий: {{ children.count }}</button>
         </div>
         {% for child in children %}
-{#            <div class="list-group-flush">#}
-{#                <div class="list-group-item">#}
-{#                    <a href="{{ child.get_absolute_url }}">#}
-{#                        <p class="mp-0">#}
-{#                            <i class="fab fa-buffer fa-2x btn-sm btn-default mr-4 p-3 white-text rounded"#}
-{#                               aria-hidden="true"></i>{{ child.name }}#}
-{#                            <span class="badge badge-info badge-pill">{{ descendants.count }}</span>#}
-{#                        </p>#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-            <!-- Card -->
-            <div class="row">
-            <div class="col-6">
-            <div class="card">
-                <!-- Card content -->
-                <div class="card-body">
-
-                    <!-- Title -->
-                    <h4 class="card-title"><a>{{ child.name }}</a></h4>
-                    <!-- Button -->
-                    <p class="card-text"><span class="badge badge-info badge-pill">{{ descendants.count }}</span></p>
-                    <a href="#" class="btn btn-primary">Открыть</a>
-
+            <div class="list-group-flush">
+                <div class="list-group-item">
+                    <a href="{{ child.get_absolute_url }}">
+                        <p class="mp-0">
+                            <i class="fab fa-buffer fa-2x btn-sm btn-default mr-4 p-3 white-text rounded"
+                                           aria-hidden="true"></i>{{ child.name }}
+                            <span class="badge badge-info badge-pill">{{ descendants.count }}</span>
+                        </p>
+                    </a>
                 </div>
-
             </div>
-            </div>
-            </div>
-            <!-- Card -->
-
-
+            
         {% endfor %}
     {% else %}
         {% for service in services %}
