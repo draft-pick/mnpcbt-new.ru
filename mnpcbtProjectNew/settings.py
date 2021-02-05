@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'needToKnow.apps.NeedtoknowConfig',
     'videoclips.apps.VideoclipsConfig',
     'services.apps.ServicesConfig',
+    'schoolNurses.apps.SchoolnursesConfig',
+    'mnpcbtMain.apps.MnpcbtmainConfig'
 ]
 
 MIDDLEWARE = [

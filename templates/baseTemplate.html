@@ -1,5 +1,4 @@
 {% load static %}
-{% load sitetree %}
 <!doctype html>
 <html lang="ru">
 <head>
@@ -24,13 +23,17 @@
     <title>{{ title }} - MNPCBT.RU</title>
 </head>
 <body>
+<div class="head-menu">
+    <div class="row p-0 m-1 text-center">
+        <div class="col-12 col-md-4">г.Москва, ул.Стромынка, д.10</div>
+        <div class="col-12 col-md-4">test</div>
+        <div class="col-12 col-md-4">test</div>
+    </div>
+</div>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar px-5">
-    <!-- Brand -->
     <a class="navbar-brand" href="/">
         <strong><img src="/media/logo-main.png" alt="" width="200px"></strong>
     </a>
-
-    <!-- Collapse -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +42,25 @@
     <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left -->
+        {% load mptt_tags %}
         <ul class="navbar-nav mr-auto lighten-4 py-4">
-            {% sitetree_menu from "mainMenu" include "this-ancestor-children" template "sitetree/menu_bootstrap4.html" %}
+            <ul class="navbar-nav mr-auto">
+                {% recursetree categories %}
+                    <li class="nav-item dropdown">
+                        <a href="{{ node.get_absolute_url }}" class="nav-link active dropdown-toggle waves-effect waves-light"
+                           aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">{{ node.name }}</a>
+                        {% if not node.is_leaf_node %}
+                            <div class="dropdown-menu">
+                                <ul class="children">
+                                    {{ children }}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endrecursetree %}
+            </ul>
         </ul>
+
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons pl-3">
             <li class="nav-item">
@@ -83,10 +102,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-4">
-                {% sitetree_menu from "mainMenu" include "this-ancestor-children" template "sitetree/menu_bootstrap4.html" %}
+                test
             </div>
             <div class="col-12 col-lg-4">
-                {% sitetree_menu from "leftMenu" include "trunk" template "sitetree/menu_bootstrap4.html" %}
+                test
             </div>
             <div class="col-12 col-lg-4">
                 <ul class="list-unstyled list-inline text-center">

@@ -216,6 +216,10 @@ strong {
     outline-width: 0;
 }
 
+.head-menu {
+    min-height: 60px;
+}
+
 /*Оформление HREF*/
 a[href$='.doc'], a[href$='.docx'] {
     background: url('/media/icons/word.png') no-repeat 100%;
