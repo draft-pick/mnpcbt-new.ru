@@ -13,4 +13,8 @@ def index(request):
 
 def get_category_school_nurses(request, slug):
     category = Category.objects.get(slug=slug)
-    return render(request, "schoolNurses/category.html", {"category": category, 'categories': Category.objects.all()})
+    children = category.get_children()
+    return render(request, "schoolNurses/category.html", {"category": category,
+                                                          "children": children,
+                                                          "title": category,
+                                                          "categories": Category.objects.all()})
