@@ -1,18 +1,17 @@
 {% extends 'inc/_containerPage.html' %}
 {% block contentPage %}
-    <div class="row">
-        {% load mptt_tags %}
+    {% load mptt_tags %}
+    <ul>
         {% recursetree categories %}
-            <div class="col-12 col-md-6 mb-3">
-                <div class="card">
-                    <a href="{{ node.get_absolute_url }}">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ node.name }}</h4>
-                            <div class="btn btn-primary">Открыть</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <li>
+                <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+                {% if not node.is_leaf_node %}
+                    <ul class="children">
+                        {{ children }}
+                    </ul>
+                {% endif %}
+            </li>
         {% endrecursetree %}
-    </div>
+    </ul>
+
 {% endblock %}
