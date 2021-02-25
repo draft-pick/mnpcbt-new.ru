@@ -16,7 +16,8 @@
 </ul>
 <div class="tab-content card pt-5" id="myTabContentMD">
   <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
-    {{ branches_item.content|safe }}
+    {{ branches_item.amb_help|safe }}
+    {{ branches_item.stac_help|safe }}
   </div>
   <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
     {{ branches_item.contacts|safe }}
