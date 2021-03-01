@@ -233,16 +233,12 @@ a[href$='.pdf'] {
     width: 64px;
     height: 64px;
 }
-.parent {
-    font-size: 24px;
-}
-.parent li {
+
+.nurses_school li{
     list-style-type: none;
+    font-size: 18px;
 }
-.children {
-    font-size: 16px;
-}
-.children li {
-    margin: 10px 0;
-    list-style-type: none;
+
+.school_height {
+    min-height: 237px;
 }

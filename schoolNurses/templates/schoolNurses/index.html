@@ -1,35 +1,143 @@
 {% extends 'inc/_containerPage.html' %}
 {% block contentPage %}
-    {% load mptt_tags %}
-    <div class="row">
+    {#    {% load mptt_tags %}#}
+    {#    <ul class="navbar-nav mr-auto">#}
+    {#        <div class="row">#}
+    {#            {% recursetree categories %}#}
+    {#                <div class="col-12 col-md-6">#}
+    {#                    {% if node.level == 0 %}#}
+    {#                        {% if not node.is_leaf_node %}#}
+    {#                            <li class="dropdown nav-item card p-3 mb-3">#}
+    {#                                <div class="img-school"></div>#}
+    {#                                <a href="#">#}
+    {#                                    <span class="mainBarItem">{{ node.name }}</span></a>#}
+    {#                                {% else %}#}
+    {##}
+    {#                        {% endif %}#}
+    {#                        {% if node.is_leaf_node %}#}
+    {#                            <li class="dropdown nav-item card p-3 mb-3">#}
+    {#                                <div class="img-school"></div>#}
+    {#                                <a href="#">#}
+    {#                                    <span class="mainBarItem">{{ node.name }}</span></a>#}
+    {#                                {% else %}#}
+    {#                        {% endif %}#}
+    {##}
+    {#                    {% else %}#}
+    {#                    {% if not node.is_leaf_node %}#}
+    {#                        <li class="dropdown-submenu">#}
+    {#                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"#}
+    {#                               aria-haspopup="false"#}
+    {#                               aria-expanded="true">#}
+    {#                                <span class="nav-label">{{ node.name }}</span></a>#}
+    {#                            {% else %}#}
+    {#                        <li><a href="#">{{ node.name }}</a>#}
+    {#                    {% endif %}#}
+    {#                    {% endif %}#}
+    {##}
+    {#                    {% if not node.is_leaf_node %}#}
+    {#                        <ul class="children">#}
+    {#                            {{ children }}#}
+    {#                        </ul>#}
+    {#                    {% endif %}#}
+    {#                    </li>#}
+    {#                </div>#}
+    {#            {% endrecursetree %}#}
+    {#        </div>#}
+    {#    </ul>#}
 
-        {% recursetree categories %}
-            <div class="col-12 col-md-6">
-                <div class="card testimonial-card">
-                    <div class="card-up indigo lighten-1"></div>
-{#                    <div class="avatar mx-auto white">#}
-{#                        <img src="https://picsum.photos/seed/picsum/200/300" class="rounded-circle"#}
-{#                             alt="woman avatar">#}
-{#                    </div>#}
-                    <div class="card-body">
-                        <h4 class="card-title">{{ node.name }}</h4>
-                        <hr>
-                        <p>{% if not node.is_leaf_node %}
-                            <ul class="children">
-                                {{ children }}
-                            </ul>
-                        {% endif %}
-                        </p>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 mb-3">
+            <div class="card card-image"
+                 style="background-image: url(/static/img/timetable_school.png);">
+                <div class="text-white text-center align-items-center rgba-indigo-strong py-1 px-1 ">
+                    <div>
+                        <h2 class="yellow-text mt-3"><i class="fab fa-buffer"></i></h2>
+                        <h1 class="card-title"><strong>Расписание</strong></h1>
                     </div>
                 </div>
             </div>
-{#                <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>#}
-{#                {% if not node.is_leaf_node %}#}
-{#                    <ul class="children">#}
-{#                        {{ children }}#}
-{#                    </ul>#}
-{#                {% endif %}#}
-        {% endrecursetree %}
+        </div>
 
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card card-image school_height"
+                 style="background-image: url(/static/img/about_school.png);">
+                <div class="text-white text-center align-items-center rgba-indigo-strong py-1 px-1 school_height">
+                    <div>
+                        <h2 class="yellow-text"><i class="fab fa-buffer"></i></h2>
+                        <h2 class="card-title pt-2"><strong>О школе</strong></h2>
+                        <ul class="nurses_school text-left">
+                            <li>Цель</li>
+                            <li>Сроки обучения</li>
+                            <li>Форма обучения</li>
+                            <li>Категория слушателей</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card card-image school_height"
+                 style="background-image: url(/static/img/zachislenie_school.png);">
+                <div class="text-white text-center align-items-center rgba-indigo-strong py-1 px-1 school_height">
+                    <div>
+                        <h2 class="yellow-text"><i class="fab fa-buffer"></i></h2>
+                        <h2 class="card-title pt-2"><strong>Зачисление</strong></h2>
+                        <ul class="nurses_school text-left">
+                            <li>Как заключить контракт</li>
+                            <li>Контактные лица</li>
+                            <li>Необходимые документы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card card-image school_height"
+                 style="background-image: url(/static/img/study_school.png);">
+                <div class="text-white text-center align-items-center rgba-indigo-strong py-1 px-1 school_height">
+                    <div>
+                        <h2 class="yellow-text"><i class="fab fa-buffer"></i></h2>
+                        <h2 class="card-title pt-2"><strong>Обучение</strong></h2>
+                        <ul class="nurses_school text-left">
+                            <li>План</li>
+                            <li>Темы лекций</li>
+                            <li>Где и как проходит</li>
+                            <li>Контрольные точки</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card card-image school_height"
+                 style="background-image: url(/static/img/documents_school.png);">
+                <div class="text-white text-center align-items-center rgba-indigo-strong py-1 px-1 school_height">
+                    <div>
+                        <h2 class="yellow-text"><i class="fab fa-buffer"></i></h2>
+                        <h2 class="card-title pt-2"><strong>Документы об образовании</strong></h2>
+                        <ul class="nurses_school text-left">
+                            <li>Удостоверение государственного образца</li>
+                            <li>Справка - допуск</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card card-image school_height"
+                 style="background-image: url(/static/img/about_org_school.png);">
+                <div class="text-white text-center align-items-center rgba-indigo-strong py-1 px-1 school_height">
+                    <div>
+                        <h2 class="yellow-text"><i class="fab fa-buffer"></i></h2>
+                        <h2 class="card-title pt-2"><strong>Об образовательной организации</strong></h2>
+                        <ul class="nurses_school text-left">
+                            <li>Устав</li>
+                            <li>Лицензия</li>
+                            <li>Программы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
