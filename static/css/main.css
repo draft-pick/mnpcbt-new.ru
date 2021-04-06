@@ -22,6 +22,9 @@ strong {
     position: relative;
 }
 
+.logo-img {
+    height: 50px !important;
+}
 .index-title::before {
     content: "";
     position: absolute;

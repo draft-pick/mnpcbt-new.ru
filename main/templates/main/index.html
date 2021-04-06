@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md-10 offset-md-1">
+                        <div class="col-12">
                             <div class="view z-depth-2 rounded">
                                 <video class="video-fluid z-depth-1 card index-player" autoplay loop muted>
                                     <source src="http://ereg.mnpcbt.ru/another/videoplayback_4.mp4" type="video/mp4"/>
@@ -67,6 +67,28 @@
                                     <i class="fas fa-clock teal-text pr-2"></i> Режим работы
                                 </h4>
                                 <span class="teal-text">КРУГЛОСУТОЧНО (СТАЦИОНАР)</span>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a class="btn-floating btn-sm btn-secondary"><i class="fas fa-calendar-check"></i></a>
+                                График приема населения
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a href="http://anketa.rosminzdrav.ru/staticogvjustank/30/1" class="card hoverable"
+                                   target="_blank">
+                                    <div class="m-2">
+                                        <div class="media">
+              <span class="card-img-100 d-inline-flex justify-content-center align-items-center rounded-circle grey lighten-3 mr-1 overflow-hidden">
+                <img src="/static/img/ocenka_kachestva.png" alt="">
+              </span>
+                                            <div class="media-body">
+                                                <h6 class="dark-grey-text text-left">
+                                                    Независимая оценка качества условий оказания услуг медицинскими
+                                                    организациями
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </section>
@@ -211,21 +233,21 @@
             </div>
             <hr>
             <div class="implink-area">
-                    <h2 class="my-4"><span class="index-title">Полезная информация</span></h2>
-                    <div class="owl-carousel" id="carouselImpLink">
-                        {% for implink in implinks %}
-                            <div class="item m-3">
-                                <a target="_blank" href="{{ implink.link }}">
-                                    <div class="avatar mx-auto">
-                                        <img src="{{ implink.image_title.url }}"
-                                             class="rounded z-depth-1-half" alt="Sample avatar">
-                                    </div>
-                                    <h6 class="text-uppercase grey-text mt-3 text-center">
-                                        <strong>{{ implink.content }}</strong></h6>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    </div>
+                <h2 class="my-4"><span class="index-title">Полезная информация</span></h2>
+                <div class="owl-carousel" id="carouselImpLink">
+                    {% for implink in implinks %}
+                        <div class="item m-3">
+                            <a target="_blank" href="{{ implink.link }}">
+                                <div class="avatar mx-auto">
+                                    <img src="{{ implink.image_title.url }}"
+                                         class="rounded z-depth-1-half" alt="Sample avatar">
+                                </div>
+                                <h6 class="text-uppercase grey-text mt-3 text-center">
+                                    <strong>{{ implink.content }}</strong></h6>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
             <hr>
             <div class="reviews-area">
@@ -670,48 +692,46 @@
     {#            </section>#}
     {#        </div>#}
     {#    </div>#}
-    {#        MODALS FEEDBACK#}
-    {#    <!-- Button trigger modal -->#}
-    {##}
-    {##}
-    {#    <!-- Full Height Modal Right -->#}
-    {#    <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"#}
-    {#         aria-hidden="true">#}
-    {##}
-    {#        <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->#}
-    {#        <div class="modal-dialog modal-full-height modal-right" role="document">#}
-    {##}
-    {##}
-    {#            <div class="modal-content">#}
-    {#                <div class="modal-header">#}
-    {#                    <h4 class="modal-title w-100" id="myModalLabel">Письмо в администанцию Центра</h4>#}
-    {#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
-    {#                        <span aria-hidden="true">&times;</span>#}
-    {#                    </button>#}
-    {#                </div>#}
-    {#                <div class="modal-body">#}
-    {#                    <div class="md-form">#}
-    {#                        <i class="fas fa-user prefix grey-text"></i>#}
-    {#                        <input type="text" id="form104" class="form-control">#}
-    {#                        <label for="form104">...Ваше имя...</label>#}
-    {#                    </div>#}
-    {#                    <div class="md-form">#}
-    {#                        <i class="fas fa-envelope prefix grey-text"></i>#}
-    {#                        <input type="text" id="form105" class="form-control">#}
-    {#                        <label for="form105">...Ваш email...</label>#}
-    {#                    </div>#}
-    {#                    <div class="md-form">#}
-    {#                        <i class="fas fa-pencil-alt prefix grey-text"></i>#}
-    {#                        <textarea id="form107" class="md-textarea form-control" rows="8"></textarea>#}
-    {#                        <label for="form107">...Ваше сообщение...</label>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#                <div class="modal-footer justify-content-center">#}
-    {#                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>#}
-    {#                    <button type="button" class="btn btn-primary">Отправить</button>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
+
+
+    <!-- Full Height Modal Right -->
+    <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+
+        <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+        <div class="modal-dialog modal-full-height modal-right" role="document">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="myModalLabel">Письмо в администанцию Центра</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="md-form">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" id="form104" class="form-control">
+                        <label for="form104">...Ваше имя...</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="form105" class="form-control">
+                        <label for="form105">...Ваш email...</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-pencil-alt prefix grey-text"></i>
+                        <textarea id="form107" class="md-textarea form-control" rows="8"></textarea>
+                        <label for="form107">...Ваше сообщение...</label>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Full Height Modal Right -->
 {% endblock %}
