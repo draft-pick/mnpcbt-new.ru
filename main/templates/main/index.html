@@ -70,26 +70,13 @@
                             </div>
                         </div>
                     </section>
-                    {#                    <div class="row">#}
-                    {#                        <div class="col-12 col-md-7 contacts-area py-2">#}
-                    {#                            <span class="badge badge-info p-2"><b>Справочная служба: 8-499-268-25-00</b></span><br>#}
-                    {#                            <span class="badge badge-info p-2"><b>Приемная Директора: 8-499-268-25-00</b></span><br>#}
-                    {#                            <span class="badge badge-info p-2"><b>Отдел делопроизводства: 8-499-785-25-14</b></span><br>#}
-                    {#                            <span class="badge badge-info p-2"><b>Факс: 8-499-785-20-82</b></span><br>#}
-                    {#                            <span class="badge badge-danger p-2"><b>Телефон горячей линии психологической помощи:<br> +7(999)353-79-80</b></span><br>#}
-                    {#                        </div>#}
-                    {#                        <div class="col-12 col-md-5 address-area py-2">#}
-                    {#                            <span class="badge badge-default p-2"><b>Адрес:<br> г. Москва, ул. Стромынка, д. 10</b></span><br>#}
-                    {#                            <span class="badge badge-default p-2"><b>Режим работы:<br> КРУГЛОСУТОЧНО(СТАЦИОНАР)</b></span><br>#}
-                    {#                        </div>#}
-                    {#                    </div>#}
                 </div>
             </div>
             <hr>
             <div class="row d-flex justify-content-center wow fadeIn news-area">
                 <!--Grid column-->
                 <div class="col-12">
-                    <h3 class="my-4 h4"><span class="index-title">Наши новости</span></h3>
+                    <h2 class="my-4"><span class="index-title">Наши новости</span></h2>
                     <div class="row">
                         <div class="col-12 col-md-4">
                             {% for nl in news_last %}
@@ -129,8 +116,9 @@
                                 {% endfor %}
                                 <div class="col-12 col-md-6">
                                     <a href="{% url 'news' %}">
-                                        <button class="btn btn-outline-info btn-rounded waves-effect">Больше<br>
-                                            новостей<br> <i class="fas fa-angle-double-right fa-lg"></i></button>
+                                        <button class="btn btn-outline-info btn-rounded waves-effect">Больше новостей
+                                            <i class="fas fa-angle-double-right fa-lg"></i>
+                                        </button>
                                     </a>
                                 </div>
                             </div>
@@ -138,9 +126,10 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="row d-flex justify-content-center wow fadeIn branches-area">
                 <div class="col-12">
-                    <h3 class="my-4 h4"><span class="index-title">Наши филиалы</span></h3>
+                    <h2 class="my-4"><span class="index-title">Наши филиалы</span></h2>
                     <div class="owl-carousel px-3" id="carouselBranches">
                         {% for i in branches %}
                             <div class="item">
@@ -178,47 +167,90 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="container my-5 z-depth-1 px-0 rounded">
 
+                <section class="white-text grey p-5 rounded counter-area"
+                         style="background-image: url(/static/img/bg-counter.jpg);">
 
-  <!--Section: Content-->
-  <section class="white-text grey p-5 rounded">
+                    <h3 class="text-center font-weight-bold mb-4 pb-2">Статистика</h3>
 
-    <h3 class="text-center font-weight-bold mb-4 pb-2">Counter</h3>
+                    <div class="row">
 
-    <div class="row">
+                        <div class="col-md-4 mb-4 text-center">
+                            <div class="row">
+                                <div class="col-12 bg-static">
+                                    <div class="text-uppercase h4 mt-3">Сотрудников</div>
+                                    <h4 class="display-4 mb-0 count-up" data-from="0" data-to="5000"
+                                        data-time="2000">5000</h4>
+                                </div>
+                            </div>
+                        </div>
 
-      <div class="col-md-4 mb-4">
-        <div class="row">
-          <div class="col-6 pr-0">
-            <h4 class="display-4 text-right mb-0 count-up" data-from="0" data-to="42" data-time="2000">42</h4>
-          </div>
+                        <div class="col-md-4 mb-4 text-center">
+                            <div class="row">
+                                <div class="col-12 bg-static">
+                                    <div class="text-uppercase h4 mt-3">Врачей</div>
+                                    <h4 class="display-4 mb-0 count1" data-from="0" data-to="3500"
+                                        data-time="2000">3,500</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 text-center">
+                            <div class="row">
+                                <div class="col-12 bg-static">
+                                    <div class="text-uppercase h4 mt-3">Докторов медицинских наук</div>
+                                    <h4 class="display-4 mb-0 count3" data-from="0" data-to="20"
+                                        data-time="2000">20</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Section: Content-->
+            </div>
+            <hr>
+            <div class="implink-area">
+                    <h2 class="my-4"><span class="index-title">Полезная информация</span></h2>
+                    <div class="owl-carousel" id="carouselImpLink">
+                        {% for implink in implinks %}
+                            <div class="item m-3">
+                                <a target="_blank" href="{{ implink.link }}">
+                                    <div class="avatar mx-auto">
+                                        <img src="{{ implink.image_title.url }}"
+                                             class="rounded z-depth-1-half" alt="Sample avatar">
+                                    </div>
+                                    <h6 class="text-uppercase grey-text mt-3 text-center">
+                                        <strong>{{ implink.content }}</strong></h6>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            <hr>
+            <div class="reviews-area">
+                <h2 class="my-4"><span class="index-title">Отзывы о нашей работе</span></h2>
+                <section>
+                    {% for r in reviews %}
+                        <!-- Card header -->
+                        <div class="card-header border-0 font-weight-bold d-flex justify-content-between">
+                            <p class="mr-4 mb-0 text-sea-color"><i class="fas fa-calendar mr-2"></i>{{ r.date }}</p>
+                        </div>
 
-          <div class="col-6">
-            <p class="text-uppercase font-weight-normal mb-1">Projects</p>
-            <p class="mb-0"><i class="fas fa-briefcase fa-2x mb-0"></i></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4">
-        <div class="row">
-          <div class="col-6 pr-0">
-            <h4 class="display-4 text-right mb-0 count1" data-from="0" data-to="3500" data-time="2000">3,500</h4>
-          </div>
-
-          <div class="col-6">
-            <p class="text-uppercase font-weight-normal mb-1">Customers</p>
-            <p class="mb-0"><i class="fas fa-user fa-2x mb-0"></i></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Section: Content-->
-
-
-</div>
+                        <div class="media mt-4 px-1 text-md-left">
+                            <img class="card-img-100 d-flex z-depth-1 mr-3" src="/media/user.png">
+                            <div class="media-body">
+                                <h5 class="font-weight-bold mt-0">
+                                    <div class="text-sea-color">{{ r.name }}</div>
+                                </h5>
+                                <div class="story">
+                                    {{ r.content|safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
         </div>
     </main>
     <!--Main layout-->

@@ -257,6 +257,7 @@ $(document).ready(function(){
   $('.count-up').counter();
   $('.count1').counter();
   $('.count2').counter();
+  $('.count3').counter();
 
   new WOW().init();
 
@@ -264,3 +265,4 @@ $(document).ready(function(){
     $('.count5').counter();
   }, 3000);
 });
+

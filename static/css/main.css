@@ -17,17 +17,19 @@ strong {
 .mt--100 {
     margin-top: -150px;
 }
+
 .index-title {
     position: relative;
 }
+
 .index-title::before {
     content: "";
     position: absolute;
-    background: rgba(170,102,204,.1);
-    width: 110%;
+    background: rgba(170, 102, 204, .2);
+    width: 104%;
     height: 10px;
     left: -7px;
-    top: 9px;
+    top: 14px;
 
 }
 
@@ -273,6 +275,20 @@ strong {
 
 .branches-area a {
     color: #45526e !important;
+}
+
+.counter-area {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.counter-area .bg-static{
+    background: rgba(0,0,0,.4);
+    border-radius: 20px;
 }
 
 /*.md-form label {*/
