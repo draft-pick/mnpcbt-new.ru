@@ -1,36 +1,218 @@
 {% extends 'inc/_containerPage.html' %}
- {% block contentPage %}
-<ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
-      aria-selected="true">Общая информация</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
-      aria-selected="false">Контактная информация</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab-md" data-toggle="tab" href="#contact-md" role="tab" aria-controls="contact-md"
-      aria-selected="false">Дополнительная информация</a>
-  </li>
-</ul>
-<div class="tab-content card pt-5" id="myTabContentMD">
-  <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
-    {{ branches_item.amb_help|safe }}
-    {{ branches_item.stac_help|safe }}
-  </div>
-  <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
-    {{ branches_item.contacts|safe }}
-    <h4>Как добраться:</h4>
-      {% for im in image_map %}
-          <img class="img-fluid" src="{{ im.image.url }}" alt="">
-      {% endfor %}
-  </div>
-  <div class="tab-pane fade" id="contact-md" role="tabpanel" aria-labelledby="contact-tab-md">
-    <h3><a href="{{ branches_item.get_spec_url }}">Наши специалисты</a></h3>
-      <hr>
-    <h3>Лицензии</h3>
-  </div>
-</div>
+{% block contentPage %}
+    <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab"
+               aria-controls="home-md"
+               aria-selected="true">Общая информация</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab"
+               aria-controls="profile-md"
+               aria-selected="false">Контактная информация</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab-md" data-toggle="tab" href="#contact-md" role="tab"
+               aria-controls="contact-md"
+               aria-selected="false">Дополнительная информация</a>
+        </li>
+    </ul>
+    <div class="tab-content card pt-5" id="myTabContentMD">
+        <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="font-weight-bold text-info mb-3">
+                        Противотуберкулезная амбулаторная помощь:
+                    </h5>
+                    {{ branches_item.amb_help|safe }}
+                </div>
+                {% if branches_item.stac_help %}
+                    <div class="col-12">
+                        <h5 class="font-weight-bold text-info mb-1 mt-3">
+                            Противотуберкулезная стационарная помощь:
+                        </h5>
+                        {{ branches_item.stac_help|safe }}
+                    </div>
+                {% endif %}
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Телефоны контакта филиала:
+                    </h5>
+                    {{ branches_item.tel_cnt_br }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-danger mb-1 mt-3">
+                        Телефон горячей линии:
+                    </h5>
+                    {{ branches_item.tel_hotline }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Телефоны контакта филиала:
+                    </h5>
+                    {{ branches_item.tel_hotline }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Секретарь тел./факс:
+                    </h5>
+                    {{ branches_item.secretary }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Регистратура(взрослое отделение):
+                    </h5>
+                    {{ branches_item.tel_reg_ad }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Регистратура(детское отделение):
+                    </h5>
+                    {{ branches_item.tel_reg_ch }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Адрес электронной почты:
+                    </h5>
+                    {{ branches_item.email }}
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Режим работы филиала:
+                    </h5>
+                    {{ branches_item.opening_hour|safe }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <img src="{{ branches_item.image_head.url }}" alt="" class="rounded mx-auto d-block"
+                         style="width: 200px">
+                </div>
+                <div class="col-12 col-md-7">
+                    <h4>{{ branches_item.head|safe }}</h4>
+                    <span class="text-info">Телефоны контакта руководства:</span> {{ branches_item.tel_head }}<br>
+                    <span class="text-info">Приемная:</span> {{ branches_item.reception }}<br>
+                    <span class="text-info">Часы работы | Часы приема:</span> {{ branches_item.opening_hour_head|safe }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Заместитель руководителя филиала:
+                    </h5>
+                    {{ branches_item.substitute|safe }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Информация о руководителях подразделений:
+                    </h5>
+                    {{ branches_item.substitute_info|safe }}
+                </div>
+            </div>
+            <hr>
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Краткая история филиала:
+                </h5>
+                {{ branches_item.history|safe }}
+            </div>
+            <hr>
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Территориальные районы обслуживания населения в настоящее время:
+                </h5>
+                {{ branches_item.territory|safe }}
+            </div>
+            <hr>
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Общая информация о филиале:
+                </h5>
+                {{ branches_item.body_info|safe }}
+            </div>
+            <hr>
+            {% if branches_item.stac_info %}
+                <div>
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Размещение пациентов в стационаре:
+                    </h5>
+                    {{ branches_item.stac_info|safe }}
+                </div>
+                <hr>
+            {% endif %}
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Персонал:
+                </h5>
+                {{ branches_item.doctors_info|safe }}
+            </div>
+            <hr>
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Информация по отделениям:
+                </h5>
+                {{ branches_item.otdel_info|safe }}
+            </div>
+            <hr>
+            {% if branches_item.stac_info %}
+                <div>
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Информация по кабинетам:
+                    </h5>
+                    {{ branches_item.separation_info|safe }}
+                </div>
+                <hr>
+            {% endif %}
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Виды оказываемой помощи:
+                </h5>
+                {{ branches_item.type_help|safe }}
+            </div>
+            <hr>
+            <div>
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Оснащение филиала:
+                </h5>
+                {{ branches_item.equipping_info|safe }}
+            </div>
+            <hr>
+            {% if branches_item.medicines_info %}
+                <div>
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Информация о льготном лекарственном обеспечении пациентов:
+                    </h5>
+                    {{ branches_item.medicines_info|safe }}
+                </div>
+                <hr>
+            {% endif %}
+            {% if branches_item.other_info %}
+                <div>
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Иная информация о филиале:
+                    </h5>
+                    {{ branches_item.other_info|safe }}
+                </div>
+                <hr>
+            {% endif %}
+        </div>
+        <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+            {{ branches_item.contacts|safe }}
+            <h4>Как добраться:</h4>
+            {% for im in image_map %}
+                <img class="img-fluid" src="{{ im.image.url }}" alt="">
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="contact-md" role="tabpanel" aria-labelledby="contact-tab-md">
+            <h3><a href="{{ branches_item.get_spec_url }}">Наши специалисты</a></h3>
+            <hr>
+            <h3>Лицензии</h3>
+        </div>
+    </div>
 
 {% endblock %}

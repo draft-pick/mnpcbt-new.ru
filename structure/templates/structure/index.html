@@ -2,41 +2,37 @@
     {% block contentPage %}
 <div class="row">
 {% for i in branches %}
-     <div class="col-lg-4 col-md-12 mb-4">
-            <!-- Card Wider -->
-         <a class="stretched-link" href="{{ i.get_absolute_url }}">
-            <div class="card card-cascade wider">
-
-              <!-- Card image -->
-              <div class="view view-cascade overlay">
-                   {% if i.image_title %}
-                       <img class="img-fluid" src="{{ i.image_title.url }}" alt="">
-                   {% else %}
-                       <img class="img-fluid" src="/media/no_image.jpg" alt="">
-                   {% endif %}
-              </div>
-
-              <!-- Card content -->
-              <div class="card-body card-body-cascade text-center pb-0">
-
-                <!-- Title -->
-                <h4 class="card-title"><strong>{{ i.name }}</strong></h4>
-                <!-- Text -->
-                <div class="text-left">{{ i.contacts|safe }}</div>
-
-                <!-- Card footer -->
-                <div class="card-footer text-muted text-center mt-4">
-                  <button type="button" class="btn btn-outline-default btn-rounded waves-effect">
-                      <a href="{{ i.get_absolute_url }}">Открыть</a>
-                  </button>
-                </div>
-
-              </div>
-
-            </div>
-         </a>
-     </div>
-
-{% endfor %}
+                            <div class="col-12 col-md-4">
+                                <a href="{{ i.get_absolute_url }}">
+                                    <div class="card mb-4">
+                                        <div class="view overlay">
+                                            {% if i.image_title %}
+                                                <img class="card-img-top" src="{{ i.image_title.url }}" alt="">
+                                            {% else %}
+                                                <img class="card-img-top" src="/media/no_image.jpg" alt="">
+                                            {% endif %}
+                                            <a href="{{ i.get_absolute_url }}">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ i.name }}</h4>
+                                            Адрес:
+                                            <div class="card-text">{{ i.address }}</div>
+                                            Контактный телефон:
+                                            <div class="card-text">{{ i.tel_cnt_br }}</div>
+                                            {% if i.tel_hotline %}
+                                                Телефон горячей линии:
+                                                <div class="card-text">{{ i.tel_hotline }}</div>
+                                            {% endif %}
+                                            <button type="button" class="btn btn-light-blue btn-md">
+                                                Перейти
+                                                <i class="fas fa-long-arrow-alt-right fa-lg"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
 </div>
 {% endblock %}
