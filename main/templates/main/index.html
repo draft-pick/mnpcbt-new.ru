@@ -10,7 +10,7 @@
             <div class="row wow fadeIn">
                 <!--Grid column-->
                 <div class="col-md-5 mb-4 align-items-center d-flex">
-                    <div class="position-absolute">
+                    <div class="position-absolute z-index-norm">
                         <div class="left-mm p-2 ml-3">
                             <ul class="navbar-nav mr-auto">
                                 {% sitetree_menu from "leftMenu" include "trunk" template "sitetree/menu_bootstrap4.html" %}
@@ -95,6 +95,47 @@
                 </div>
             </div>
             <hr>
+            <div class="row d-flex justify-content-center wow fadeIn branches-area">
+                <div class="col-12">
+                    <h2 class="my-4"><span class="index-title">Наши филиалы</span></h2>
+                    <div class="owl-carousel px-3" id="carouselBranches">
+                        {% for i in branches %}
+                            <div class="item">
+                                <a href="{{ i.get_absolute_url }}">
+                                    <div class="card mb-4">
+                                        <div class="view overlay">
+                                            {% if i.image_title %}
+                                                <img class="card-img-top" src="{{ i.image_title.url }}" alt="">
+                                            {% else %}
+                                                <img class="card-img-top" src="/media/no_image.jpg" alt="">
+                                            {% endif %}
+                                            <a href="{{ i.get_absolute_url }}">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ i.name }}</h4>
+                                            Адрес:
+                                            <div class="card-text">{{ i.address }}</div>
+                                            Контактный телефон:
+                                            <div class="card-text">{{ i.tel_cnt_br }}</div>
+                                            {% if i.tel_hotline %}
+                                                Телефон горячей линии:
+                                                <div class="card-text">{{ i.tel_hotline }}</div>
+                                            {% endif %}
+                                            <button type="button" class="btn btn-light-blue btn-md">
+                                                Перейти
+                                                <i class="fas fa-long-arrow-alt-right fa-lg"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <hr>
             <div class="row d-flex justify-content-center wow fadeIn news-area">
                 <!--Grid column-->
                 <div class="col-12">
@@ -145,47 +186,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row d-flex justify-content-center wow fadeIn branches-area">
-                <div class="col-12">
-                    <h2 class="my-4"><span class="index-title">Наши филиалы</span></h2>
-                    <div class="owl-carousel px-3" id="carouselBranches">
-                        {% for i in branches %}
-                            <div class="item">
-                                <a href="{{ i.get_absolute_url }}">
-                                    <div class="card mb-4">
-                                        <div class="view overlay">
-                                            {% if i.image_title %}
-                                                <img class="card-img-top" src="{{ i.image_title.url }}" alt="">
-                                            {% else %}
-                                                <img class="card-img-top" src="/media/no_image.jpg" alt="">
-                                            {% endif %}
-                                            <a href="{{ i.get_absolute_url }}">
-                                                <div class="mask rgba-white-slight"></div>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="card-title">{{ i.name }}</h4>
-                                            Адрес:
-                                            <div class="card-text">{{ i.address }}</div>
-                                            Контактный телефон:
-                                            <div class="card-text">{{ i.tel_cnt_br }}</div>
-                                            {% if i.tel_hotline %}
-                                                Телефон горячей линии:
-                                                <div class="card-text">{{ i.tel_hotline }}</div>
-                                            {% endif %}
-                                            <button type="button" class="btn btn-light-blue btn-md">
-                                                Перейти
-                                                <i class="fas fa-long-arrow-alt-right fa-lg"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                                     <div class="text-sea-color">{{ r.name }}</div>
                                 </h5>
                                 <div class="story">
-                                    {{ r.content|safe }}
+                                    {{ r.content }}
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,24 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <div class="container mt-5">
+        <div class="row">
+            {% for s in san %}
+                    <div class="col-12 col-md-4 mb-2">
+                    <a href="{{ s.get_absolute_url }}">
+                        <div class="card card-cascade">
+                            <div class="view view-cascade overlay">
+                                <img class="card-img-top" src="{{ s.image_title.url }}" alt="">
+                            </div>
+                            <div class="card-body card-body-cascade text-center">
+                                <h4 class="card-title"><strong>{{ s.title }}</strong></h4>
+                                <h6 class="indigo-text py-2 text-left">{{ s.address }}</h6>
+                                <h6 class="indigo-text py-2 text-left">{{ s.site }}</h6>
+                            </div>
+                        </div>
+                                        </a>
+
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

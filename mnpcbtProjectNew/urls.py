@@ -35,6 +35,7 @@ urlpatterns = [
     path('videoclips/', include('videoclips.url')),
     path('services/', include('services.url')),
     path('schoolNurses/', include('schoolNurses.url')),
+    path('schoolPatient/', include('schoolPatient.url')),
     path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

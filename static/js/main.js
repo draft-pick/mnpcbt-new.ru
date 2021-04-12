@@ -266,3 +266,12 @@ $(document).ready(function(){
   }, 3000);
 });
 
+// PRELOADER
+  window.onload = function () {
+    document.body.classList.add('loaded_hiding');
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+      document.body.classList.remove('loaded_hiding');
+    }, 500);
+  }
+// END PRELOADER

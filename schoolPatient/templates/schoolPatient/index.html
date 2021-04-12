@@ -1,0 +1,77 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-5 offset-md-4">
+                <a href="{% url 'sanatoriums' %}">
+                    <h4 class="mb-3">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="fas fa-hospital-alt indigo-text pr-2 fa-2x"></i>
+                            </div>
+                            <div class="col-10">
+                                Противотуберкулёзные санатории
+                            </div>
+                        </div>
+                    </h4>
+                </a>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h4 class="mb-3">
+                    <div class="row">
+                        <div class="col-2">
+                            <i class="fas fa-house-user indigo-text pr-2 fa-2x"></i>
+                        </div>
+                        <div class="col-10">
+                            Рекомендуемый режим дня больного туберкулезом без бактериовыделения, получающего лечение на
+                            дому в условиях режима "Сиди дома"
+                        </div>
+                    </div>
+                </h4>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h4 class="mb-3">
+                    <div class="row">
+                        <div class="col-2">
+                            <i class="fas fa-clinic-medical indigo-text pr-2 fa-2x"></i>
+                        </div>
+                        <div class="col-10">
+                            Памятка по профилактике новой коронавирусной инфекции COVID-19 для больных туберкулезом,
+                            получающих лечение амбулаторно (на дому)
+                        </div>
+                    </div>
+                </h4>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h4 class="mb-3">
+                    <div class="row">
+                        <div class="col-2">
+                            <i class="fas fa-hospital-user indigo-text pr-2 fa-2x"></i>
+                        </div>
+                        <div class="col-10">
+                            Памятка по профилактике новой коронавирусной инфекции COVID-19 для больных туберкулезом,
+                            находящихся в стационаре
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-5 offset-md-4">
+                <h4 class="mb-3">
+                    <div class="row">
+                        <div class="col-2">
+                            <i class="fas fa-dumbbell indigo-text pr-2 fa-2x"></i>
+                        </div>
+                        <div class="col-10">
+                            Комплекс упражнений лечебной физкультуры, разработанный для пациентов Центра (видеокурс)
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

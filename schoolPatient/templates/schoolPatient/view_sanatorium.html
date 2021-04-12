@@ -1,0 +1,39 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th scope="row">Адрес:</th>
+            <td>{{ san_item.address }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Сайт:</th>
+            <td>{{ san_item.site }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Тип климатического курорта:</th>
+            <td>{{ san_item.type }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Номерной фонд:</th>
+            <td>{{ san_item.numbers }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Виды лечения:</th>
+            <td>{{ san_item.typesTreatment|safe }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Показания:</th>
+            <td>{{ san_item.indications|safe }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img class="rounded float-left img-fluid" src="{{ san_item.image_title.url }}" alt="">
+        </div>
+            <div class="col-12 col-md-6">
+            <img class="rounded float-right img-fluid" src="{{ san_item.image_diagram.url }}" alt="">
+        </div>
+    </div>
+{% endblock %}

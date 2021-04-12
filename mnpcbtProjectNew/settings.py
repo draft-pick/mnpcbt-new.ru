@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'videoclips.apps.VideoclipsConfig',
     'services.apps.ServicesConfig',
     'schoolNurses.apps.SchoolnursesConfig',
-    'mnpcbtMain.apps.MnpcbtmainConfig'
+    'mnpcbtMain.apps.MnpcbtmainConfig',
+    'schoolPatient.apps.SchoolpatientConfig'
 ]
 
 MIDDLEWARE = [
