@@ -321,20 +321,6 @@ strong {
     min-height: 60px;
 }
 
-/*Оформление HREF*/
-a[href$='.doc'], a[href$='.docx'] {
-    background: url('/media/icons/word.png') no-repeat 100%;
-    display: inline-block;
-    width: 64px;
-    height: 64px;
-}
-
-a[href$='.pdf'] {
-    background: url('/media/icons/pdf.png') no-repeat 100%;
-    display: inline-block;
-    width: 64px;
-    height: 64px;
-}
 
 .nurses_school li {
     list-style-type: none;

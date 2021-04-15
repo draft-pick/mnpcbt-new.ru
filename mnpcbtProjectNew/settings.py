@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'schoolNurses.apps.SchoolnursesConfig',
     'mnpcbtMain.apps.MnpcbtmainConfig',
-    'schoolPatient.apps.SchoolpatientConfig'
+    'schoolPatient.apps.SchoolpatientConfig',
+    'smi.apps.SmiConfig',
 ]
 
 MIDDLEWARE = [

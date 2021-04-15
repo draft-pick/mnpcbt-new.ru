@@ -1,0 +1,39 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <a href="#!" class="card hoverable">
+                    <div class="card-body my-4">
+                        <p><i class="fas fa-video fa-2x text-primary"></i></p>
+                        <h5 class="black-text mb-0">Видеоролики</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-4">
+                <a href="{% url 'smi_article' %}" class="card hoverable">
+                    <div class="card-body my-4">
+                        <p><i class="far fa-newspaper fa-2x text-primary"></i></p>
+                        <h5 class="black-text mb-0">Статьи</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-4">
+                <a href="#!" class="card hoverable">
+                    <div class="card-body my-4">
+                        <p><i class="fas fa-microphone-alt fa-2x text-primary"></i></p>
+                        <h5 class="black-text mb-0">Подкасты</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-4">
+                <a href="#!" class="card hoverable">
+                    <div class="card-body my-4">
+                        <p><i class="fas fa-broadcast-tower fa-2x text-primary"></i></p>
+                        <h5 class="black-text mb-0">Радио</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
