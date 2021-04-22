@@ -1,6 +1,31 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db.models import Q
+
+
+class BranchesManager(models.Manager):
+    use_for_related_fields = True
+
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query:
+            or_lookup = (Q(name__icontains=query) | Q(amb_help__icontains=query))
+            qs = qs.filter(or_lookup)
+        return qs
+
+
+class SpecialistManager(models.Manager):
+    use_for_related_fields = True
+
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query:
+            or_lookup = (Q(name__icontains=query) |
+                         Q(patronymic__icontains=query) |
+                         Q(surname__icontains=query))
+            qs = qs.filter(or_lookup)
+        return qs
 
 
 class Branches(models.Model):
@@ -35,6 +60,7 @@ class Branches(models.Model):
     anons_info = RichTextUploadingField(blank=True, verbose_name="Анонс")
     image_title = models.ImageField(upload_to='branches/', verbose_name='Фото заголовка', blank=True)
     image_head = models.ImageField(upload_to='branches/', verbose_name='Фото руководителя', blank=True)
+    objects = BranchesManager()
 
     def get_absolute_url(self):
         return reverse('view_branch', kwargs={"branch_id": self.pk})
@@ -70,6 +96,7 @@ class Specialists(models.Model):
     date_sertif = models.CharField(blank=True, max_length=100, verbose_name='Дата выдачи')
     category = models.CharField(blank=True, max_length=100, verbose_name='Категория')
     degree = models.CharField(blank=True, max_length=100, verbose_name='Степень')
+    objects = SpecialistManager()
 
     def __str__(self):
         return self.name

@@ -1,6 +1,20 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db.models import Q
+
+
+class ManagementManager(models.Manager):
+    use_for_related_fields = True
+
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query:
+            or_lookup = (Q(title__icontains=query) |
+                         Q(position__icontains=query) |
+                         Q(content__icontains=query))
+            qs = qs.filter(or_lookup)
+        return qs
 
 
 class Management(models.Model):
@@ -9,6 +23,8 @@ class Management(models.Model):
     content = RichTextUploadingField(blank=True, verbose_name='Контент')
     image_title = models.ImageField(upload_to='management', verbose_name='Фото', blank=True)
     main_card = models.BooleanField(default=False, verbose_name='Директор')
+
+    objects = ManagementManager()
 
     def get_absolute_url(self):
         return reverse('view_management', kwargs={"management_id": self.pk})

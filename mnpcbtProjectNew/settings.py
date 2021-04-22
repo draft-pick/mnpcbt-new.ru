@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'mnpcbtMain.apps.MnpcbtmainConfig',
     'schoolPatient.apps.SchoolpatientConfig',
     'smi.apps.SmiConfig',
+    'search.apps.SearchConfig',
 ]
 
 MIDDLEWARE = [

@@ -9,6 +9,7 @@ class Category(models.Model):
     anons = RichTextUploadingField(blank=True, verbose_name='Анонс')
     content = RichTextUploadingField(blank=True, verbose_name='Контент')
     url = models.CharField(blank=True, max_length=300, verbose_name="Ссылка на документ")
+    icon = models.CharField(blank=True, max_length=255, verbose_name="Иконка")
 
     def __str__(self):
         return self.title

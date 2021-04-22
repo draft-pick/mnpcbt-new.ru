@@ -4,7 +4,7 @@ body {
 }
 
 a {
-    color: #2bbbad;
+    color: #1a3c55;
 }
 
 strong {
@@ -321,7 +321,9 @@ strong {
     min-height: 60px;
 }
 
-
+.nurses_school a{
+    color: #fff !important;
+}
 .nurses_school li {
     list-style-type: none;
     font-size: 18px;
@@ -390,3 +392,32 @@ strong {
   display: none;
 }
 /* END PRELOADER */
+
+.search-area ol {
+	list-style-type: none;
+	counter-reset: num;
+	margin: 0 0 0 45px;
+	padding: 15px 0 5px 0;
+	font-size: 16px;
+}
+.search-area ol li {
+	position: relative;
+	margin: 0 0 0 0;
+	padding: 0 0 10px 0;
+	line-height: 1.4;
+}
+.search-area ol li:before {
+	content: counter(num);
+	counter-increment: num;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: -38px;
+	width: 28px;
+	height: 28px;
+	background: #ef6780;
+	color: #fff;
+	text-align: center;
+	line-height: 28px;
+	font-size: 18px;
+}

@@ -1,0 +1,46 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {#    <div class="search-area">#}
+    {#        <div class="text-right mb-3">#}
+    {#            Найдено - <span class="badge badge-danger">{{ count }}</span>#}
+    {#            для запроса <span class="text-danger">"{{ query }}"</span>#}
+    {#        </div>#}
+    {#        <ol>#}
+    {#            {% if object_list %}#}
+    {#                {% for object in object_list %}#}
+    {#                    <li>#}
+    {#                        <a href="{{ object.get_absolute_url }}">#}
+    {#                            {% if object.title %}#}
+    {#                                <h5>{{ object.title }}</h5>#}
+    {#                            {% endif %}#}
+    {#                            {% if object.name %}#}
+    {#                                <h5>{{ object.name }} {{ object.patronymic }} {{ object.surname }}</h5>#}
+    {#                            {% endif %}#}
+    {#                            <span class="text-muted">Адрес: {{ object.get_absolute_url }}</span><br>#}
+    {#                            <div class="badge badge-danger">#}
+    {#                                <i class="fas fa-long-arrow-alt-right pr-2" aria-hidden="true"></i>Читать...#}
+    {#                            </div>#}
+    {#                        </a>#}
+    {#                    </li>#}
+    {#                    <hr>#}
+    {#                {% endfor %}#}
+    {#            {% else %}#}
+    {#                <p>Не найдено публикаций по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p>#}
+    {#            {% endif %}#}
+    {#        </ol>#}
+    {#    </div>#}
+    <div id="ya-site-results"
+         data-bem="{&quot;tld&quot;: &quot;ru&quot;,&quot;language&quot;: &quot;ru&quot;,&quot;encoding&quot;: &quot;&quot;,&quot;htmlcss&quot;: &quot;1.x&quot;,&quot;updatehash&quot;: true}"></div>
+    <script type="text/javascript">(function (w, d, c) {
+        var s = d.createElement('script'), h = d.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.charset = 'utf-8';
+        s.src = (d.location.protocol === 'https:' ? 'https:' : 'http:') + '//site.yandex.net/v2.0/js/all.js';
+        h.parentNode.insertBefore(s, h);
+        (w[c] || (w[c] = [])).push(function () {
+            Ya.Site.Results.init();
+        })
+    })(window, document, 'yandex_site_callbacks');</script>
+
+{% endblock %}

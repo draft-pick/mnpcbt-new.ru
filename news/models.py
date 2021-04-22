@@ -1,6 +1,18 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db.models import Q
+
+
+class NewsManager(models.Manager):
+    use_for_related_fields = True
+
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query:
+            or_lookup = (Q(title__icontains=query))
+            qs = qs.filter(or_lookup)
+        return qs
 
 
 class News(models.Model):
@@ -10,6 +22,8 @@ class News(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовать')
     image_title = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото', blank=True)
+    tag = models.CharField(max_length=300, default=True, verbose_name='Опубликовать')
+    objects = NewsManager()
 
     def get_absolute_url(self):
         return reverse('view_news', kwargs={"news_id": self.pk})
@@ -26,7 +40,3 @@ class News(models.Model):
 class GalleryNews(models.Model):
     image = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото', blank=True)
     product = models.ForeignKey(News, on_delete=models.CASCADE, related_name='images')
-
-
-
-

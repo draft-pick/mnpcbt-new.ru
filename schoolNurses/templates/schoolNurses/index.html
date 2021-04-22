@@ -1,105 +1,20 @@
 {% extends 'inc/_containerPage.html' %}
 {% block contentPage %}
     <div class="row">
-    {% for ctg in categories %}
-    <div class="col-md-6 col-xl-4 mb-4">
-    <a class="text-white" href="{{ ctg.get_absolute_url }}">
-            <div class="card text-center bg-info text-white">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="far fa-calendar-alt fa-2x"></i></p>
-                    <h4 class="font-weight-normal my-1 py-1">{{ ctg.title }}</h4>
-                    <div class="nurses_school text-left">
-                        {{ ctg.anons|safe }}
+        {% for ctg in categories %}
+            <div class="col-md-6 col-xl-4 mb-4">
+                <a class="text-white" href="{{ ctg.get_absolute_url }}">
+                    <div class="card text-center bg-info text-white">
+                        <div class="card-body">
+                            <p class="mt-1 pt-1"><i class="{{ ctg.icon }} fa-2x"></i></p>
+                            <h4 class="font-weight-normal my-1 py-1">{{ ctg.title }}</h4>
+                            <div class="nurses_school text-left">
+                                {{ ctg.anons|safe }}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-    </a>
-        </div>
-    {% endfor %}
-    </div>
-
-
-
-
-
-
-    <div class="row">
-        <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card text-center bg-info text-white">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="far fa-calendar-alt fa-2x"></i></p>
-                    <h4 class="font-weight-normal my-1 py-1"><a class="text-white" href="#">Расписание</a></h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card text-center bg-info text-white school_height">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="fas fa-graduation-cap fa-2x"></i></p>
-                    <h4 class="font-weight-normal my-1 py-1"><a class="text-white" href="#">О школе</a></h4>
-                    <div class="nurses_school text-left">
-                        <li>Цель</li>
-                        <li>Сроки обучения</li>
-                        <li>Форма обучения</li>
-                        <li>Категория слушателей</li>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card text-center bg-success text-white school_height">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="fas fa-file-contract fa-4x"></i></p>
-                    <h3 class="font-weight-normal my-1 py-1"><a class="text-white" href="#">Зачисление</a></h3>
-                    <div class="nurses_school text-left">
-                        <li>Как заключить контракт</li>
-                        <li>Контактные лица</li>
-                        <li>Необходимые документы</li>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card text-center bg-success text-white school_height">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="fas fa-chalkboard-teacher fa-4x"></i></p>
-                    <h3 class="font-weight-normal my-1 py-1"><a class="text-white" href="#">Обучение</a></h3>
-                    <div class="nurses_school text-left">
-                        <li>План</li>
-                        <li>Темы лекций</li>
-                        <li>Где и как проходит</li>
-                        <li>Контрольные точки</li>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card text-center bg-success text-white school_height">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="fas fa-file-alt fa-4x"></i></p>
-                    <h3 class="font-weight-normal my-1 py-1"><a class="text-white" href="#">Документы об образовании</a>
-                    </h3>
-                    <div class="nurses_school text-left">
-                        <li>Удостоверение государственного образца</li>
-                        <li>Справка - допуск</li>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4">
-            <div class="card text-center bg-success text-white school_height">
-                <div class="card-body">
-                    <p class="mt-1 pt-1"><i class="fas fa-exclamation-circle fa-4x"></i></p>
-                    <h3 class="font-weight-normal my-1 py-1"><a class="text-white" href="#">Об образовательной
-                        организации</a>
-                    </h3>
-                    <div class="nurses_school text-left">
-                        <li>Устав</li>
-                        <li>Лицензия</li>
-                        <li>Программы</li>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
