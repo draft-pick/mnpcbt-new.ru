@@ -421,3 +421,12 @@ strong {
 	line-height: 28px;
 	font-size: 18px;
 }
+
+#ya-site-form0 .ya-site-form__form .ya-site-form__input-text {
+    border-radius: 10px !important;
+    padding: 10px !important;
+}
+
+#ya-site-form0 .ya-site-form__submit_type_image {
+    background: url(https://site.yandex.net/v2.0/i/search.png) no-repeat;
+}

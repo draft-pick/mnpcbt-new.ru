@@ -4,6 +4,7 @@ from news.models import News, GalleryNews
 from structure.models import Branches, GalleryBranches
 from reviews.models import Reviews
 from implink.models import ImpLink
+from employees.models import Employees
 
 
 def index(request):
@@ -13,6 +14,11 @@ def index(request):
     image_branches = Branches.objects.all()
     reviews = Reviews.objects.all()
     implinks = ImpLink.objects.all()
+    employees = Employees.objects.all()
+    degree_candidate = employees.filter(degree='Кандидат мед. наук').count()
+    degree_doctor = employees.filter(degree='Доктор мед. наук').count()
+    mos_doc = employees.filter(mos_doc="Московский врач").count()
+    count_list = employees.count()
     context = {
         'news_last': news_last,
         'news': news,
@@ -20,6 +26,11 @@ def index(request):
         'image_branches': image_branches,
         'reviews': reviews,
         'implinks': implinks,
+        'employees': employees,
+        'degree_candidate': degree_candidate,
+        'degree_doctor': degree_doctor,
+        'mos_doc': mos_doc,
+        'count_list': count_list,
         'title': 'Главная страница',
     }
     return render(request, 'main/index.html', context=context)

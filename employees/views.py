@@ -32,9 +32,6 @@ def index(request):
         'mos_doc': mos_doc,
         'count_list': count_list,
         'branches': branches,
-        'labels': ['F', 'M'],
-        'data': [52, 82],
-        'colors': ["#FF4136", "#0074D9"]
     }
     return render(request, 'employees/index.html', context=context)
 

@@ -258,6 +258,7 @@ $(document).ready(function(){
   $('.count1').counter();
   $('.count2').counter();
   $('.count3').counter();
+  $('.count4').counter();
 
   new WOW().init();
 
