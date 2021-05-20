@@ -105,7 +105,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!-- Left -->
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-4 mr-auto">
                 {% sitetree_menu from "mainMenu" include "this-ancestor-children" template "sitetree/menu_bootstrap4.html" %}
             </ul>
 
@@ -113,23 +113,23 @@
             <ul class="navbar-nav nav-flex-icons align-items-center">
                 <li class="nav-item fa-border">
                     <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fa-2x far fa-eye red-text"></i>
+                        <i class="fa-2x far fa-eye text-info"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                         <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"
                                        data-target="#fullHeightModalTop">
-                            <i class="fa-2x fas fa-search text-secondary"></i>
+                            <i class="fa-2x fas fa-search text-info"></i>
                         </a>
                 </li>
                 <li class="nav-item">
                     <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-facebook-f indigo-text"></i>
+                        <i class="fab fa-facebook-f text-info"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-twitter indigo-text"></i>
+                        <i class="fab fa-twitter text-info"></i>
                     </a>
                 </li>
 {#                <li class="nav-item">#}
@@ -196,6 +196,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

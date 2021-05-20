@@ -1,0 +1,120 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-4 mb-4">
+            Всего сотрудников -
+            <button type="button" class="btn btn-info btn-sm">{{ count_list }}</button>
+        </div>
+        <div class="col-12 col-md-4">
+            Кандидат медицинких наук -
+            <a class="btn-floating btn-sm btn-secondary">
+                <div class="d-flex justify-content-center align-items-center h-100 text-white">{{ degree_candidate }}</div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            Доктор медицинких наук -
+            <a class="btn-floating btn-sm btn-default">
+                <div class="d-flex justify-content-center align-items-center h-100 text-white">{{ degree_doctor }}</div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4">
+            Московский врач -
+            <a class="btn-floating btn-sm btn-primary">
+                <div class="d-flex justify-content-center align-items-center h-100 text-white">{{ mos_doc.count }}</div>
+            </a>
+        </div>
+    </div>
+    </div>
+    <hr>
+     <nav class="w-100">
+            <ul class="pagination pg-teal justify-content-center">
+                {% if employees.has_previous %}
+                    <li class="page-item">
+                    <a class="page-link" aria-label="Previous" href="?page={{ employees.previous_page_number }}">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                {% endif %}
+                {% for page in employees.paginator.page_range %}
+                    {% if page == employees.number %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                            {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if employees.has_next %}
+                    <li class="page-item">
+                    <a class="page-link" aria-label="Next" href="?page={{ employees.next_page_number }}">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav>
+    <div class="row">
+        {% for em in employees %}
+            <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="row">
+                    {% if em.mos_doc %}
+                        <a href="{{ em.mos_doc_url }}">
+                            <div class="col-12">
+                                <h6 class="font-weight-bold pt-2">{{ em.surname }} {{ em.name }} {{ em.patronymic }}</h6>
+                                <p class="text-muted">
+                                    {{ em.post }}
+                                </p>
+                                <div class="pink-text">
+                                    <h6 class="font-weight-bold mb-1"> {{ em.degree }}</h6>
+                                </div>
+                                <div class="blue-text">
+                                    <h6 class="font-weight-bold mb-1"> {{ em.mos_doc }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{{ em.get_absolute_url }}">
+                            <div class="col-12">
+                                <h6 class="font-weight-bold pt-2">{{ em.surname }} {{ em.name }} {{ em.patronymic }}</h6>
+                                <p class="text-muted">
+                                    {{ em.post }}
+                                </p>
+                                <div class="pink-text">
+                                    <h6 class="font-weight-bold mb-1"> {{ em.degree }}</h6>
+                                </div>
+                                <div class="blue-text">
+                                    <h6 class="font-weight-bold mb-1"> {{ em.mos_doc }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        <nav class="w-100">
+            <ul class="pagination pg-teal justify-content-center">
+                {% if employees.has_previous %}
+                    <li class="page-item">
+                    <a class="page-link" aria-label="Previous" href="?page={{ employees.previous_page_number }}">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                {% endif %}
+                {% for page in employees.paginator.page_range %}
+                    {% if page == employees.number %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                            {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if employees.has_next %}
+                    <li class="page-item">
+                    <a class="page-link" aria-label="Next" href="?page={{ employees.next_page_number }}">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

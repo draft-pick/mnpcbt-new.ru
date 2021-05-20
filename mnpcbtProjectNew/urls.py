@@ -38,6 +38,7 @@ urlpatterns = [
     path('schoolPatient/', include('schoolPatient.url')),
     path('smi/', include('smi.url')),
     path('search/', include('search.url')),
+    path('employees/', include('employees.url')),
 
     path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]

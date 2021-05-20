@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'sitetree',
     'mptt',
+    'import_export',
     'main.apps.MainConfig',
     'news.apps.NewsConfig',
     'articles.apps.ArticlesConfig',
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     'schoolPatient.apps.SchoolpatientConfig',
     'smi.apps.SmiConfig',
     'search.apps.SearchConfig',
+    'employees.apps.EmployeesConfig',
 ]
 
 MIDDLEWARE = [

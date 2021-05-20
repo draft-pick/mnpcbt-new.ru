@@ -1,0 +1,22 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    <span class="red-text">Должность:</span> {{ employee_item.post }}<br>
+    <hr>
+    <span class="red-text">Подразделение:</span> {{ employee_item.units }}<br>
+    <hr>
+    <span class="red-text">Филиал:</span> {{ employee_item.branch }}<br>
+    <hr>
+    <span class="red-text">Образование:</span> {{ employee_item.formation }}<br>
+    <hr>
+    <span class="red-text">Специальность:</span> {{ employee_item.speciality }}<br>
+    <hr>
+    <span class="red-text">Категория:</span> {{ employee_item.category }}<br>
+    {% if employee_item.degree %}
+        <hr>
+        <span class="red-text">Ученая степень:</span> {{ employee_item.degree }}<br>
+    {% elif employee_item.rank %}
+        <hr>
+        <span class="red-text">Ученое звание:</span> {{ employee_item.rank }}<br>
+    {% endif %}
+
+{% endblock %}
