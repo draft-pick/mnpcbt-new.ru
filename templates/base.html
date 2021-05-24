@@ -92,7 +92,7 @@
 
         <!-- Brand -->
         <a class="waves-effect" href="/">
-            <img class="logo-img" src="/static/img/logo-old.png" alt="ГБУЗ 'МНПЦ борьбы с туберкулезом ДЗМ'">
+            <img class="logo-img" src="/media/logo_21.png" alt="ГБУЗ 'МНПЦ борьбы с туберкулезом ДЗМ'">
         </a>
 
         <!-- Collapse -->
@@ -111,28 +111,37 @@
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons align-items-center">
-                <li class="nav-item fa-border">
-                    <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fa-2x far fa-eye text-info"></i>
-                    </a>
+                <li>
+                    <a class="btn-floating btn-sm btn-primary"><i class="far fa-eye"></i></a>
                 </li>
-                <li class="nav-item mx-2">
-                        <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"
-                                       data-target="#fullHeightModalTop">
-                            <i class="fa-2x fas fa-search text-info"></i>
-                        </a>
+                {#                <li class="nav-item fa-border">#}
+                {#                    <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">#}
+                {#                        <i class="fa-2x far fa-eye text-info"></i>#}
+                {#                    </a>#}
+                {#                </li>#}
+                {#                <li class="nav-item mx-2">#}
+                {#                        <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"#}
+                {#                                       data-target="#fullHeightModalTop">#}
+                {#                            <i class="fa-2x fas fa-search text-info"></i>#}
+                {#                        </a>#}
+                {#                </li>#}
+                <li>
+                    <a type="button" class="btn-floating btn-sm btn-secondary" data-toggle="modal"
+                       data-target="#modalSocial">
+                        <i class="fas fa-search"></i>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-facebook-f text-info"></i>
+                        <i class="fab fa-facebook-f text-black"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-twitter text-info"></i>
+                        <i class="fab fa-twitter text-black"></i>
                     </a>
                 </li>
-{#                <li class="nav-item">#}
+                {#                <li class="nav-item">#}
                 {#                    <form class="form-inline d-flex justify-content-center md-form form-sm active-pink-2 mt-2"#}
                 {#                          action="{% url 'home:search' %}">#}
                 {#                        <input id="search" name="q" class="form-control form-control-sm mr-3 w-75" type="text"#}

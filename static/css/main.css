@@ -423,10 +423,16 @@ strong {
 }
 
 #ya-site-form0 .ya-site-form__form .ya-site-form__input-text {
-    border-radius: 10px !important;
-    padding: 10px !important;
+    padding: 15px !important;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
-#ya-site-form0 .ya-site-form__submit_type_image {
-    background: url(https://site.yandex.net/v2.0/i/search.png) no-repeat;
+#ya-site-form0 .ya-site-form__form input{
+    background: #0277bd !important;
+    color: #fff !important;
+    border: none;
 }
+
+
