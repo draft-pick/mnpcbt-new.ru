@@ -9,6 +9,7 @@ class Know(models.Model):
     url = models.CharField(blank=True, max_length=500, verbose_name='Ссылка')
     sort = models.CharField(blank=True, max_length=10, verbose_name="Сортировка")
     anons = models.BooleanField(default=False, verbose_name="На главную")
+    content = RichTextUploadingField(blank=True, verbose_name='Контент')
 
     def get_absolute_url(self):
         return reverse('view_know', kwargs={"slug": self.slug})
