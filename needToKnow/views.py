@@ -11,8 +11,8 @@ def index(request):
     return render(request, 'needToKnow/index.html', context=context)
 
 
-def view_know(request, know_id):
-    know_item = Know.objects.get(pk=know_id)
+def view_know(request, slug):
+    know_item = Know.objects.get(slug=slug)
     context = {
         'title': know_item.title,
         "know_item": know_item,

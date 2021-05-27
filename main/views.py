@@ -5,6 +5,7 @@ from structure.models import Branches, GalleryBranches
 from reviews.models import Reviews
 from implink.models import ImpLink
 from employees.models import Employees
+from needToKnow.models import Know
 
 
 def index(request):
@@ -19,6 +20,7 @@ def index(request):
     degree_doctor = employees.filter(degree='Доктор мед. наук').count()
     mos_doc = employees.filter(mos_doc="Московский врач").count()
     count_list = employees.count()
+    need_to_know = Know.objects.filter(anons=1)
     context = {
         'news_last': news_last,
         'news': news,
@@ -31,6 +33,7 @@ def index(request):
         'degree_doctor': degree_doctor,
         'mos_doc': mos_doc,
         'count_list': count_list,
+        'need_to_know': need_to_know,
         'title': 'Главная страница',
     }
     return render(request, 'main/index.html', context=context)

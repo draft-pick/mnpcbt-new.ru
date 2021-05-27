@@ -11,6 +11,11 @@ strong {
     font-weight: 700;
 }
 
+.index-page u {
+text-decoration: underline;
+text-decoration-color: #607d8b;
+}
+
 .text-sea-color {
     color: #2bbbad;
 }
@@ -21,21 +26,23 @@ strong {
 
 .index-title {
     position: relative;
+    font-weight: bold;
+    color: #1C2331;
 }
 
 .logo-img {
     height: 50px !important;
 }
-.index-title::before {
-    content: "";
-    position: absolute;
-    background: rgba(170, 102, 204, .2);
-    width: 104%;
-    height: 10px;
-    left: -7px;
-    top: 14px;
+/*.index-title::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    background: rgba(170, 102, 204, .2);*/
+/*    width: 104%;*/
+/*    height: 10px;*/
+/*    left: -7px;*/
+/*    top: 14px;*/
 
-}
+/*}*/
 
 @media screen and (max-width: 1500px) {
     .mt--100 {
@@ -261,9 +268,9 @@ strong {
     margin: 10px 0;
 }
 
-.news-area {
-    background: url("/static/img/bg-news-area.png") 135% 100% no-repeat;
-}
+/*.news-area {*/
+/*    background: url("/static/img/bg-news-area.png") 135% 100% no-repeat;*/
+/*}*/
 
 .news-area .btn-more {
     font-size: 50px;
@@ -273,9 +280,9 @@ strong {
     color: #45526e !important;
 }
 
-.branches-area {
-    background: url("/static/img/bg-news-area.png") -80% 10% no-repeat;
-}
+/*.branches-area {*/
+/*    background: url("/static/img/bg-news-area.png") -80% 10% no-repeat;*/
+/*}*/
 
 .branches-area a {
     color: #45526e !important;
