@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'smi.apps.SmiConfig',
     'search.apps.SearchConfig',
     'employees.apps.EmployeesConfig',
+    'covidSpecialists.apps.CovidspecialistsConfig',
 ]
 
 MIDDLEWARE = [

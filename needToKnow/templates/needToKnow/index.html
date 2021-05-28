@@ -1,20 +1,22 @@
 {% extends 'inc/_containerPage.html' %}
 {% block contentPage %}
-    <div class="row">
     {% for k in know %}
-        <div class="col-12 col-lg-3">
-            <a href="{{ k.get_absolute_url }}">
-            <div class="card card-image"
-              style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
-              <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-                <div>
-                  <p>{{ k.title }}</p>
-                  <div class="btn btn-pink"><i class="fas fa-clone left"></i> Читать</div>
-                </div>
-              </div>
-            </div>
+        {% if k.url %}
+            <a target="_blank" href="{{ k.url }}">
+            <section class="mb-0 dark-grey-text">
+                <h3 class="font-weight-bold">{{ k.title }}</h3>
+                <button type="button" class="btn btn-indigo btn-rounded">Читать</button>
+                <hr class="mb-4">
+            </section>
             </a>
-        </div>
+        {% else %}
+        <a href="{{ k.get_absolute_url }}">
+            <section class="mb-0 dark-grey-text">
+                <h3 class="font-weight-bold">{{ k.title }}</h3>
+                <button type="button" class="btn btn-indigo btn-rounded">Читать</button>
+                <hr class="mb-4">
+            </section>
+        </a>
+        {% endif %}
     {% endfor %}
-    </div>
 {% endblock %}
