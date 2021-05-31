@@ -1,0 +1,22 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% for cov in covid %}
+        {% if cov.url %}
+            <a target="_blank" href="{{ cov.url }}">
+            <section class="mb-0 dark-grey-text">
+                <h3 class="font-weight-bold">{{ cov.title }}</h3>
+                <button type="button" class="btn btn-indigo btn-rounded">Читать</button>
+                <hr class="mb-4">
+            </section>
+            </a>
+        {% else %}
+        <a href="{{ cov.get_absolute_url }}">
+            <section class="mb-0 dark-grey-text">
+                <h3 class="font-weight-bold">{{ cov.title }}</h3>
+                <button type="button" class="btn btn-indigo btn-rounded">Читать</button>
+                <hr class="mb-4">
+            </section>
+        </a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import *
+
+
+class CovidAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
+
+admin.site.register(Covid, CovidAdmin)
