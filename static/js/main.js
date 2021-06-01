@@ -120,8 +120,8 @@ $(document).ready(function() {
                 nav:true, //Отключение навигации
                 autoplay:true, //Автозапуск слайдера
                 autoplayHoverPause:true,
-                smartSpeed:2000, //Время движения слайда
-                autoplayTimeout:4000, //Время смены слайда
+                smartSpeed:4000, //Время движения слайда
+                autoplayTimeout:8000, //Время смены слайда
                 responsive:{ //Адаптивность. Кол-во выводимых элементов при определенной ширине.
                     0:{
                         items:1
@@ -130,7 +130,7 @@ $(document).ready(function() {
                         items:2
                     },
                     1000:{
-                        items:5
+                        items:4
                     }
                 }
             });

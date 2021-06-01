@@ -1,25 +1,25 @@
 {% extends 'inc/_containerPage.html' %}
 {% block contentPage %}
     <div class="row">
-        <div class="col-12 col-md-8 offset-md-4 mb-4">
+        <div class="col-12">
             Всего сотрудников -
-            <button type="button" class="btn btn-info btn-sm">{{ count_list }}</button>
+            <button type="button" class="btn btn-info">{{ count_list }}</button>
         </div>
-        <div class="col-12 col-md-4">
-            Кандидат медицинких наук -
-            <a class="btn-floating btn-sm btn-secondary">
+        <div class="col-12">
+            Кандидат наук -
+            <a class="btn btn-info">
                 <div class="d-flex justify-content-center align-items-center h-100 text-white">{{ degree_candidate }}</div>
             </a>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12">
             Доктор медицинких наук -
-            <a class="btn-floating btn-sm btn-success">
+            <a class="btn btn-info">
                 <div class="d-flex justify-content-center align-items-center h-100 text-white">{{ degree_doctor }}</div>
             </a>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12">
             Московский врач -
-            <a class="btn-floating btn-sm btn-primary">
+            <a class="btn btn-info">
                 <div class="d-flex justify-content-center align-items-center h-100 text-white">{{ mos_doc.count }}</div>
             </a>
         </div>
