@@ -539,11 +539,11 @@ strong {
     opacity: .4;
     top: 60px;
     right: 60px;
-    -webkit-transform: rotate(160deg);
-    -moz-transform: rotate(160deg);
-    -o-transform: rotate(160deg);
-    -ms-transform: rotate(160deg);
-    transform: rotate(160deg);
+    -webkit-transform: rotate(340deg);
+    -moz-transform: rotate(340deg);
+    -o-transform: rotate(340deg);
+    -ms-transform: rotate(340deg);
+    transform: rotate(340deg);
 }
 
 .icon_main_page_3 {
