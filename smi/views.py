@@ -35,4 +35,13 @@ def smi_article(request):
     return render(request, 'smi/article.html', context=context)
 
 
+def smi_videoclips(request):
+    videoclips = smiVideoclips.objects.all()
+    context = {
+        'title': 'Видеоролики',
+        'videoclips': videoclips,
+    }
+    return render(request, 'smi/videoclips.html', context=context)
+
+
 

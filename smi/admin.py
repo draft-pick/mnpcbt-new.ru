@@ -11,3 +11,10 @@ class smiArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(smiArticles)
 
+
+class smiVideoclipsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
+
+admin.site.register(smiVideoclips, smiVideoclipsAdmin)
+

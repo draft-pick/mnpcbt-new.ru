@@ -142,12 +142,12 @@
                 </li>
                 <li class="nav-item">
                     <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-facebook-f text-black"></i>
+                        <i class="fab fa-facebook-f gray-dark-text"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-twitter text-black"></i>
+                        <i class="fab fa-twitter gray-dark-text"></i>
                     </a>
                 </li>
                 {#                <li class="nav-item">#}
@@ -175,13 +175,28 @@
 <footer class="page-footer font-small special-color-dark pt-4 mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-md-3 mb-2">
+                <h4>Контактная информация:</h4>
+                Адрес: г. Москва, ул. Стромынка, дом 10
+                <hr>
+                Телефоны: <br>
+                Справочная служба: 8-499-268-01-31 <br>
+                Секретариат: 8-499-268-00-05 <br>
+                Факс: 8-499-785-20-82 <br>
+                <hr>
+                Адрес электронной почты: cdb@zdrav.mos.ru
+                <hr>
+                Время работы: Круглосуточно (стационар)
+                <hr>
+                <a href="/regularPages/6/">График приема населения</a>
+            </div>
+            <div class="col-12 col-lg-3">
                 {% sitetree_menu from "mainMenu" include "this-ancestor-children" template "sitetree/menu_bootstrap4.html" %}
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-3">
                 {% sitetree_menu from "leftMenu" include "trunk" template "sitetree/menu_bootstrap4.html" %}
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-3">
                 <ul class="list-unstyled list-inline text-center">
                     <li class="list-inline-item">
                         <a class="btn-floating btn-fb mx-1">

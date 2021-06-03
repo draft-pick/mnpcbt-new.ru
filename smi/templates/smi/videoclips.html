@@ -1,0 +1,19 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% for videoclip in videoclips %}
+        {% if videoclip.url %}
+            <a target="_blank" href="{{ videoclip.url }}">
+                <div class="list-group-flush">
+                    <div class="list-group-item">
+                        <p class="mb-0">
+                            <i class="fas fa-video mr-4 blue p-3 white-text rounded " aria-hidden="true"></i>
+                            {{ videoclip.title }}
+                        </p>
+                    </div>
+                </div>
+                <hr>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
