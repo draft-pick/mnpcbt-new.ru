@@ -77,15 +77,16 @@ strong {
         font-size: 1.5rem;
         padding: .2rem;
     }
-
     .card hr {
         margin-top: .2rem;
         margin-bottom: .2rem;
     }
-
     .card h4 {
         font-size: .8rem;
         margin-bottom: 0;
+    }
+    .left-mm .nav-item a{
+        font-size: 16px !important;
     }
 }
 
