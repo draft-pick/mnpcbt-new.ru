@@ -101,13 +101,13 @@
                             <div class="item">
                                 {% if know.url %}
                                     <a target="_blank" href="{{ know.url }}">
-                                        <div class="card p-4 rounded my-2 mx-1 text-center light-blue lighten-5 anons_know gray-dark-text d-flex justify-content-center branches-area">
+                                        <div class="h6 text-warning branches-area">
                                             {{ know.title }}
                                         </div>
                                     </a>
                                 {% else %}
                                     <a href="{{ know.get_absolute_url }}">
-                                        <div class="card p-4 rounded my-2 mx-1 text-center light-blue lighten-5 anons_know gray-dark-text d-flex justify-content-center branches-area">
+                                        <div class="h6 text-warning branches-area">
                                             {{ know.title }}
                                         </div>
                                     </a>

@@ -36,32 +36,35 @@
                 {% endif %}
             </div>
             <hr>
-        {% if branches_item.image_head %}
-            <h5 class="font-weight-bold text-info mb-1 mt-3">
-                Руководитель:
-            </h5>
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <img src="{{ branches_item.image_head.url }}" alt="" class="rounded mx-auto d-block"
-                         style="width: 200px">
+            {% if branches_item.image_head %}
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Руководитель:
+                </h5>
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <img src="{{ branches_item.image_head.url }}" alt="" class="rounded mx-auto d-block"
+                             style="width: 200px">
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <h4>{{ branches_item.head|safe }}</h4>
+                        <span class="text-info">Телефоны контакта руководства:</span> {{ branches_item.tel_head }}<br>
+                        <span class="text-info">Приемная:</span> {{ branches_item.reception }}<br>
+                        <span class="text-info">Часы работы | Часы приема:</span> {{ branches_item.opening_hour_head|safe }}
+                    </div>
                 </div>
-                <div class="col-12 col-md-7">
-                    <h4>{{ branches_item.head|safe }}</h4>
-                    <span class="text-info">Телефоны контакта руководства:</span> {{ branches_item.tel_head }}<br>
-                    <span class="text-info">Приемная:</span> {{ branches_item.reception }}<br>
-                    <span class="text-info">Часы работы | Часы приема:</span> {{ branches_item.opening_hour_head|safe }}
-                </div>
-            </div>
-            <hr>
-        {% endif %}
+                <hr>
+            {% endif %}
             <div class="row">
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                     <h5 class="font-weight-bold text-info mb-1 mt-3">
                         Заместитель руководителя филиала:
                     </h5>
                     {{ branches_item.substitute|safe }}
                 </div>
-                <div class="col-12 col-md-6">
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
                     <h5 class="font-weight-bold text-info mb-1 mt-3">
                         Информация о руководителях подразделений:
                     </h5>
@@ -106,13 +109,15 @@
                 {{ branches_item.doctors_info|safe }}
             </div>
             <hr>
-            <div>
-                <h5 class="font-weight-bold text-info mb-1 mt-3">
-                    Информация по отделениям:
-                </h5>
-                {{ branches_item.otdel_info|safe }}
-            </div>
-            <hr>
+            {% if branches_item.otdel_info %}
+                <div>
+                    <h5 class="font-weight-bold text-info mb-1 mt-3">
+                        Информация по отделениям:
+                    </h5>
+                    {{ branches_item.otdel_info|safe }}
+                </div>
+                <hr>
+            {% endif %}
             {% if branches_item.stac_info %}
                 <div>
                     <h5 class="font-weight-bold text-info mb-1 mt-3">
@@ -164,67 +169,66 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Телефоны контакта филиала:
-                    </h5>
-                    {{ branches_item.tel_cnt_br }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-danger mb-1 mt-3">
-                        Телефон горячей линии:
-                    </h5>
-                    {{ branches_item.tel_hotline }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Телефоны контакта филиала:
-                    </h5>
-                    {{ branches_item.tel_hotline }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Секретарь тел./факс:
-                    </h5>
-                    {{ branches_item.secretary }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Регистратура(взрослое отделение):
-                    </h5>
-                    {{ branches_item.tel_reg_ad }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Регистратура(детское отделение):
-                    </h5>
-                    {{ branches_item.tel_reg_ch }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Адрес электронной почты:
-                    </h5>
-                    {{ branches_item.email }}
-                </div>
-                <div class="col-12 col-md-4">
-                    <h5 class="font-weight-bold text-info mb-1 mt-3">
-                        Режим работы филиала:
-                    </h5>
-                    {{ branches_item.opening_hour|safe }}
-                </div>
+    <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Телефоны контакта филиала:
+                </h5>
+                {{ branches_item.tel_cnt_br }}
             </div>
-            <h4>Как добраться:</h4>
-            {% for im in image_map %}
-                <img class="img-fluid" src="{{ im.image.url }}" alt="">
-            {% endfor %}
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-danger mb-1 mt-3">
+                    Телефон горячей линии:
+                </h5>
+                {{ branches_item.tel_hotline }}
+            </div>
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Телефоны контакта филиала:
+                </h5>
+                {{ branches_item.tel_hotline }}
+            </div>
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Секретарь тел./факс:
+                </h5>
+                {{ branches_item.secretary }}
+            </div>
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Регистратура(взрослое отделение):
+                </h5>
+                {{ branches_item.tel_reg_ad }}
+            </div>
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Регистратура(детское отделение):
+                </h5>
+                {{ branches_item.tel_reg_ch }}
+            </div>
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Адрес электронной почты:
+                </h5>
+                {{ branches_item.email }}
+            </div>
+            <div class="col-12 col-md-4">
+                <h5 class="font-weight-bold text-info mb-1 mt-3">
+                    Режим работы филиала:
+                </h5>
+                {{ branches_item.opening_hour|safe }}
+            </div>
         </div>
-        <div class="tab-pane fade" id="contact-md" role="tabpanel" aria-labelledby="contact-tab-md">
-            <h3><a href="{{ branches_item.get_spec_url }}">Наши специалисты</a></h3>
-            <hr>
-            <h3>Лицензии</h3>
-        </div>
+        <h4>Как добраться:</h4>
+        {% for im in image_map %}
+            <img class="img-fluid" src="{{ im.image.url }}" alt="">
+        {% endfor %}
     </div>
-
+    <div class="tab-pane fade" id="contact-md" role="tabpanel" aria-labelledby="contact-tab-md">
+        <h3><a href="{{ branches_item.get_spec_url }}">Наши специалисты</a></h3>
+        <hr>
+        <h3>Лицензии</h3>
+    </div>
+    </div>
 {% endblock %}

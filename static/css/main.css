@@ -37,7 +37,8 @@ strong {
 .logo-img {
     height: 50px !important;
 }
-.logo-area{
+
+.logo-area {
     color: #4f4f4f !important;
     font-weight: 400 !important;
 }
@@ -77,15 +78,18 @@ strong {
         font-size: 1.5rem;
         padding: .2rem;
     }
+
     .card hr {
         margin-top: .2rem;
         margin-bottom: .2rem;
     }
+
     .card h4 {
         font-size: .8rem;
         margin-bottom: 0;
     }
-    .left-mm .nav-item a{
+
+    .left-mm .nav-item a {
         font-size: 16px !important;
     }
 }
@@ -529,7 +533,7 @@ strong {
     z-index: -9;
 }
 
-.icon_main_all{
+.icon_main_all {
     position: absolute;
     width: 500px;
     height: 500px;
@@ -537,7 +541,8 @@ strong {
     bottom: 0;
     left: 0;
 }
-.icon_main_all_right{
+
+.icon_main_all_right {
     position: absolute;
     width: 500px;
     height: 500px;
@@ -651,6 +656,30 @@ strong {
     opacity: .4;
     top: 560px;
     right: 45px;
+}
+
+/* owl nav */
+.owl-prev span, .owl-next span {
+    color: #FFF;
+}
+
+.owl-prev span:hover,
+.owl-next span:hover {
+    color: #8199A3;
+}
+
+.owl-prev, .owl-next {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.owl-prev {
+    left: 7px;
+}
+
+.owl-next {
+    right: 7px;
 }
 
 
