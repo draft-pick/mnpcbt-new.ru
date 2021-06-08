@@ -118,9 +118,10 @@ $(document).ready(function() {
                 loop:true, //Зацикливаем слайдер
                 margin:50, //Отступ от элемента справа в 50px
                 nav:true, //Отключение навигации
+                navText : ["<div class='anons_know-left'>&#11071;</div>","<div class='anons_know-right'>&#10547;</div>"],
                 autoplay:true, //Автозапуск слайдера
                 autoplayHoverPause:true,
-                smartSpeed:4000, //Время движения слайда
+                smartSpeed:1000, //Время движения слайда
                 autoplayTimeout:8000, //Время смены слайда
                 responsive:{ //Адаптивность. Кол-во выводимых элементов при определенной ширине.
                     0:{

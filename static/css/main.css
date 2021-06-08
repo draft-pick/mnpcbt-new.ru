@@ -256,33 +256,36 @@ strong {
 }
 
 .anons_know {
-    height: 150px !important;
-    overflow: hidden !important;
-    font-size: 14px !important;
+    height: 80px !important;
+    font-size: 13px !important;
     position: relative;
+}
+
+.anons_know-left {
+    position: absolute;
+    top: 8px;
+    font-size: 45px;
+    left: 13px;
+    color: #f48fb1;
+}
+
+.anons_know-right {
+    position: absolute;
+    top: 7px;
+    font-size: 45px;
+    right: 13px;
+    color: #f48fb1;
 }
 
 .anons_know::before {
     content: "";
     position: absolute;
-    right: -30px;
-    top: 0;
-    width: 45px;
-    height: 50%;
-    background: #b3e5fc;
-    transform: rotate(-30deg);
+    right: -80px;
+    top: 39px;
+    width: 80px;
+    height: 3px;
+    background: #f48fb1;
 }
-
-/*.anons_know::after {*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    left: -25px;*/
-/*    bottom: -25px;*/
-/*    width: 45px;*/
-/*    height: 45px;*/
-/*    border-radius: 50%;*/
-/*    background: #1C2331;*/
-/*}*/
 
 .breadcrumb-item + .breadcrumb-item::before {
     content: "|";
@@ -658,29 +661,6 @@ strong {
     right: 45px;
 }
 
-/* owl nav */
-.owl-prev span, .owl-next span {
-    color: #FFF;
-}
-
-.owl-prev span:hover,
-.owl-next span:hover {
-    color: #8199A3;
-}
-
-.owl-prev, .owl-next {
-    position: absolute;
-    top: 0;
-    height: 100%;
-}
-
-.owl-prev {
-    left: 7px;
-}
-
-.owl-next {
-    right: 7px;
-}
 
 
 

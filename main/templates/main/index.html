@@ -96,18 +96,18 @@
                             </div>
                         </section>
                     </div>
-                    <div class="owl-carousel px-3" id="carouselKnow">
+                    <div class="owl-carousel px-5" id="carouselKnow">
                         {% for know in need_to_know %}
                             <div class="item">
                                 {% if know.url %}
                                     <a target="_blank" href="{{ know.url }}">
-                                        <div class="h6 text-warning branches-area">
+                                        <div class="card btn-rounded text-center d-flex justify-content-center pink lighten-3 anons_know text-white">
                                             {{ know.title }}
                                         </div>
                                     </a>
                                 {% else %}
                                     <a href="{{ know.get_absolute_url }}">
-                                        <div class="h6 text-warning branches-area">
+                                        <div class="card btn-rounded text-center d-flex justify-content-center pink lighten-3 anons_know text-white">
                                             {{ know.title }}
                                         </div>
                                     </a>
