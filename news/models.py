@@ -17,16 +17,17 @@ class NewsManager(models.Manager):
 
 class News(models.Model):
     title = models.CharField(max_length=250, verbose_name='Наименование')
+    slug = models.SlugField(unique=False, verbose_name='URL')
     anons = models.TextField(blank=True, verbose_name='Анонс')
     content = RichTextUploadingField(blank=True, verbose_name='Контент')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
+    created_at = models.DateField(auto_now_add=False, verbose_name='Дата публикации')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовать')
     image_title = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото', blank=True)
     tag = models.CharField(max_length=300, default=True, verbose_name='Опубликовать')
     objects = NewsManager()
 
     def get_absolute_url(self):
-        return reverse('view_news', kwargs={"news_id": self.pk})
+        return reverse('view_news', kwargs={"slug": self.slug})
 
     def __str__(self):
         return self.title

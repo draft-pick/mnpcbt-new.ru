@@ -9,7 +9,8 @@ class GalleryInline(admin.TabularInline):
 
 
 @admin.register(News)
-class PostsAdmin(admin.ModelAdmin):
+class NewsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     inlines = [GalleryInline]
     list_display = ('title', 'created_at', 'anons')
     list_display_links = ('title', 'created_at', 'anons')

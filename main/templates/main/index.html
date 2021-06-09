@@ -173,7 +173,7 @@
                                         {% if nl.image_title %}
                                             <img class="img-fluid z-depth-1" src="{{ nl.image_title.url }}" alt="">
                                         {% else %}
-                                            <img class="rounded z-depth-1" src="/media/logo-main.png" alt="">
+                                            <img class="img-fluid rounded z-depth-1" src="/media/logo-main.png" alt="">
                                         {% endif %}
                                         {{ nl.title }}
                                         <div class="pink-text">{{ nl.created_at|date:"d E Y" }}</div>
@@ -190,7 +190,7 @@
                                                         <img class="img-fluid rounded z-depth-1"
                                                              src="{{ i.image_title.url }}" alt="">
                                                     {% else %}
-                                                        <img class="rounded rounded z-depth-1"
+                                                        <img class="img-fluid rounded z-depth-1"
                                                              src="/media/logo-main.png"
                                                              alt="">
                                                     {% endif %}

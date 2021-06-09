@@ -6,7 +6,7 @@
     {{ news_item.content|safe }}
      <hr>
      <div class="owl-carousel" id="carouselNews">
-         {% for images in images_gallery %}
+         {% for images in news_item.images.all %}
              <div class="item">
              {% if images.image %}
              <img src="{{ images.image.url }}" alt="">
