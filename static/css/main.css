@@ -281,11 +281,11 @@ strong {
 
 .anons_know-icon {
     position: absolute;
-    top: -19px;
+    top: 0;
     right: 0;
-    width: 65px !important;
-    height: 130px;
-    opacity: 0.5;
+    width: 200px !important;
+    height: 400px;
+    opacity: 0.4;
 }
 
 /*.anons_know::before {*/
@@ -534,6 +534,18 @@ strong {
 
 .pb-100 {
     padding-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .pt-120 {
+        padding-top: 75px;
+    }
+    .pb-100{
+        padding-bottom: 50px;
+    }
+    .fixed-top {
+        position: fixed !important;
+    }
 }
 
 .hero-bottom-shape, .hero-bottom-shape-two {

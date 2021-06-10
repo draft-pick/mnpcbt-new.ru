@@ -116,6 +116,15 @@
             <!-- Left -->
             <ul class="navbar-nav ml-4 mr-auto">
                 {% sitetree_menu from "mainMenu" include "this-ancestor-children" template "sitetree/menu_bootstrap4.html" %}
+                <div class="d-block d-md-none">
+                    {% sitetree_menu from "leftMenu" include "trunk" template "sitetree/menu_bootstrap4.html" %}
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"
+                               data-target="#fullHeightModalRight"> Письмо в администрацию Центра</a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
 
             <!-- Right -->
