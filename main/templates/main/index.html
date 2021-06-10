@@ -8,14 +8,14 @@
         <section class="hero-equal-height pt-120 pb-100">
             <div class="hero-bottom-shape-two"
                  style="background: url('/media/hero-bottom-shape-2.svg')no-repeat bottom center"></div>
-{#            <img class="icon_main_page_1" src="/media/icons/main_page/kt.svg" alt="">#}
-{#            <img class="icon_main_page_2" src="/media/icons/main_page/fluorografia.svg" alt="">#}
-{#            <img class="icon_main_page_3" src="/media/icons/main_page/microskop.svg" alt="">#}
-{#            <img class="icon_main_page_4" src="/media/icons/main_page/probirki.svg" alt="">#}
-{#            <img class="icon_main_page_5" src="/media/icons/main_page/tabletki.svg" alt="">#}
-{#            <img class="icon_main_page_6" src="/media/icons/main_page/stethoscope.svg" alt="">#}
-{#            <img class="icon_main_page_7" src="/media/icons/main_page/ampula_shpric.svg" alt="">#}
-{#            <img class="icon_main_page_8" src="/media/icons/main_page/uzi.svg" alt="">#}
+            {#            <img class="icon_main_page_1" src="/media/icons/main_page/kt.svg" alt="">#}
+            {#            <img class="icon_main_page_2" src="/media/icons/main_page/fluorografia.svg" alt="">#}
+            {#            <img class="icon_main_page_3" src="/media/icons/main_page/microskop.svg" alt="">#}
+            {#            <img class="icon_main_page_4" src="/media/icons/main_page/probirki.svg" alt="">#}
+            {#            <img class="icon_main_page_5" src="/media/icons/main_page/tabletki.svg" alt="">#}
+            {#            <img class="icon_main_page_6" src="/media/icons/main_page/stethoscope.svg" alt="">#}
+            {#            <img class="icon_main_page_7" src="/media/icons/main_page/ampula_shpric.svg" alt="">#}
+            {#            <img class="icon_main_page_8" src="/media/icons/main_page/uzi.svg" alt="">#}
             <img class="icon_main_all" src="/media/icons/main_page/all-icons.svg" alt="">
             <img class="icon_main_all_right" src="/media/icons/main_page/all-icons-right.svg" alt="">
             <div class="container dark-grey-text main-area">
@@ -99,19 +99,17 @@
                     <div class="owl-carousel px-5" id="carouselKnow">
                         {% for know in need_to_know %}
                             <div class="item">
-                                {% if know.url %}
-                                    <a target="_blank" href="{{ know.url }}">
-                                        <div class="card btn-rounded text-center d-flex justify-content-center pink lighten-3 anons_know text-white">
-                                            {{ know.title }}
-                                        </div>
-                                    </a>
+                                <a {% if know.url %}
+                                    target="_blank" href="{{ know.url }}"
                                 {% else %}
-                                    <a href="{{ know.get_absolute_url }}">
-                                        <div class="card btn-rounded text-center d-flex justify-content-center pink lighten-3 anons_know text-white">
-                                            {{ know.title }}
-                                        </div>
-                                    </a>
+                                    href="{{ know.get_absolute_url }}"
                                 {% endif %}
+                                >
+                                    <div class="card text-center d-flex justify-content-center anons_know text-white">
+                                        <img class="anons_know-icon" src="/media/icons/main_page/pattern-know.svg" alt="">
+                                            {{ know.title }}
+                                    </div>
+                                </a>
                             </div>
                         {% endfor %}
                     </div>

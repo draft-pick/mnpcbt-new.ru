@@ -259,14 +259,16 @@ strong {
     height: 80px !important;
     font-size: 13px !important;
     position: relative;
+    background: rgba(0, 0, 0, .3) !important;
 }
+
 
 .anons_know-left {
     position: absolute;
     top: 8px;
     font-size: 45px;
     left: 13px;
-    color: #f48fb1;
+    color: rgba(0, 0, 0, .5);
 }
 
 .anons_know-right {
@@ -274,18 +276,27 @@ strong {
     top: 7px;
     font-size: 45px;
     right: 13px;
-    color: #f48fb1;
+    color: rgba(0, 0, 0, .5);
 }
 
-.anons_know::before {
-    content: "";
+.anons_know-icon {
     position: absolute;
-    right: -80px;
-    top: 39px;
-    width: 80px;
-    height: 3px;
-    background: #f48fb1;
+    top: -19px;
+    right: 0;
+    width: 65px !important;
+    height: 130px;
+    opacity: 0.5;
 }
+
+/*.anons_know::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    right: -80px;*/
+/*    top: 39px;*/
+/*    width: 80px;*/
+/*    height: 3px;*/
+/*    background: #f48fb1;*/
+/*}*/
 
 .breadcrumb-item + .breadcrumb-item::before {
     content: "|";
