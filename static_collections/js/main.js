@@ -113,6 +113,30 @@ $(document).ready(function() {
             });
         });
 
+$(document).ready(function() {
+            $('#carouselKnow').owlCarousel({
+                loop:true, //Зацикливаем слайдер
+                margin:50, //Отступ от элемента справа в 50px
+                nav:true, //Отключение навигации
+                navText : ["<div class='anons_know-left'>&#171;</div>","<div class='anons_know-right'>&#187;</div>"],
+                autoplay:true, //Автозапуск слайдера
+                autoplayHoverPause:true,
+                smartSpeed:1000, //Время движения слайда
+                autoplayTimeout:8000, //Время смены слайда
+                responsive:{ //Адаптивность. Кол-во выводимых элементов при определенной ширине.
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:4
+                    }
+                }
+            });
+        });
+
 
 
 (function($) {
@@ -226,3 +250,53 @@ $().ready(function() {
     ellipsisText: "..."
   });
 });
+
+(function ($){
+  $.fn.counter = function() {
+    const $this = $(this),
+    numberFrom = parseInt($this.attr('data-from')),
+    numberTo = parseInt($this.attr('data-to')),
+    delta = numberTo - numberFrom,
+    deltaPositive = delta > 0 ? 1 : 0,
+    time = parseInt($this.attr('data-time')),
+    changeTime = 10;
+
+    let currentNumber = numberFrom,
+    value = delta*changeTime/time;
+    var interval1;
+    const changeNumber = () => {
+      currentNumber += value;
+      //checks if currentNumber reached numberTo
+      (deltaPositive && currentNumber >= numberTo) || (!deltaPositive &&currentNumber<= numberTo) ? currentNumber=numberTo : currentNumber;
+      this.text(parseInt(currentNumber));
+      currentNumber === numberTo ? clearInterval(interval1) : currentNumber;
+    }
+
+    interval1 = setInterval(changeNumber,changeTime);
+  }
+}(jQuery));
+
+$(document).ready(function(){
+
+  $('.count-up').counter();
+  $('.count1').counter();
+  $('.count2').counter();
+  $('.count3').counter();
+  $('.count4').counter();
+
+  new WOW().init();
+
+  setTimeout(function () {
+    $('.count5').counter();
+  }, 3000);
+});
+
+// PRELOADER
+  window.onload = function () {
+    document.body.classList.add('loaded_hiding');
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+      document.body.classList.remove('loaded_hiding');
+    }, 500);
+  }
+// END PRELOADER

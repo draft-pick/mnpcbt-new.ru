@@ -64,14 +64,15 @@ INSTALLED_APPS = [
     'search.apps.SearchConfig',
     'employees.apps.EmployeesConfig',
     'covidSpecialists.apps.CovidspecialistsConfig',
+    'utils',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -79,12 +80,7 @@ MIDDLEWARE = [
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:8000',
-    'https://mdbootstrap.com',
-]
+CORS_ORIGIN_ALLOW_ALL = False
 
 
 ROOT_URLCONF = 'mnpcbtProjectNew.urls'
