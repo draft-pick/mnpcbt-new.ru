@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'corsheaders',
     'ckeditor',
     'ckeditor_uploader',
     'sitetree',
@@ -64,14 +63,12 @@ INSTALLED_APPS = [
     'search.apps.SearchConfig',
     'employees.apps.EmployeesConfig',
     'covidSpecialists.apps.CovidspecialistsConfig',
-    'utils',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,8 +76,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
-
-CORS_ORIGIN_ALLOW_ALL = False
 
 
 ROOT_URLCONF = 'mnpcbtProjectNew.urls'
