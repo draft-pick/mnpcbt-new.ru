@@ -8,13 +8,13 @@ class Employees(models.Model):
     patronymic = models.CharField(max_length=500, verbose_name='Отчество')
     post = models.CharField(max_length=500, verbose_name='Должность')
     units = models.CharField(max_length=500, verbose_name='Подразделение')
-    branch = models.CharField(max_length=500, verbose_name='Филиал')
     formation = models.CharField(max_length=500, verbose_name='Образование')
-    speciality = models.CharField(max_length=500, verbose_name='Специальность')
-    category = models.CharField(max_length=200, blank=True, verbose_name='Категория')
+    accreditation = models.CharField(blank=True, max_length=500, verbose_name='Аккредитация')
+    speciality = models.CharField(max_length=500, verbose_name='Специальность по сертификату')
     degree = models.CharField(max_length=200, blank=True, verbose_name='Ученая степень')
-    rank = models.CharField(max_length=200, blank=True, verbose_name='Ученое звание')
-    mos_doc = models.CharField(max_length=200, blank=True, verbose_name='Московский врач')
+    speciality_akk = models.CharField(max_length=200, blank=True, verbose_name='Специальность по аккредитации')
+    qualification = models.CharField(max_length=200, blank=True, verbose_name='Квалификационная категория')
+    mos_doc = models.CharField(max_length=200, blank=True, verbose_name='Статус Московский врач')
     mos_doc_url = models.CharField(max_length=500, blank=True, verbose_name="Ссылка на московского врача")
 
     def get_absolute_url(self):

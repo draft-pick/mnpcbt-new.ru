@@ -540,14 +540,17 @@ strong {
     .pt-120 {
         padding-top: 75px;
     }
-    .pb-100{
+
+    .pb-100 {
         padding-bottom: 50px;
     }
+
     .fixed-top {
         position: fixed !important;
     }
+
     .card {
-        background-color: rgba(255,255,255,.9);
+        background-color: rgba(255, 255, 255, .9);
     }
 }
 
@@ -687,6 +690,26 @@ strong {
     right: 45px;
 }
 
+.reg_input {
+    display: block !important;
+    width: 100% !important;
+    border-radius: 20px !important;
+    border: none !important;
+    height: 40px !important;
+    background: #3F729B !important;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+}
 
+.reg_form{
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+
+.required-class {
+    color: red;
+}
 
 

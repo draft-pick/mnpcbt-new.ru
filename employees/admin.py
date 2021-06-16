@@ -7,6 +7,6 @@ from employees.models import Employees
 @admin.register(Employees)
 class EmployeesAdmin(ImportExportModelAdmin):
     list_display = (
-        "surname", "name", "patronymic", "post", "units", "branch", "formation", "speciality", "category", "degree",
-        "rank", "mos_doc")
+        "surname", "name", "patronymic", "post", "units", "formation", "accreditation", "speciality", "degree",
+        "speciality_akk", "qualification", "mos_doc")
     pass

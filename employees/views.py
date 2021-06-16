@@ -20,8 +20,8 @@ def index(request):
         page = p.page(page_num)
     except EmptyPage:
         page = p.page(1)
-    degree_candidate = employees.filter(degree='Кандидат мед. наук').count()
-    degree_doctor = employees.filter(degree='Доктор мед. наук').count()
+    degree_candidate = employees.filter(degree='Кандидат медицинских наук').count()
+    degree_doctor = employees.filter(degree='Доктор медицинских наук').count()
     mos_doc = employees.filter(mos_doc="Московский врач")
     count_list = employees.count()
     context = {
