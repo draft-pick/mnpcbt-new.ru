@@ -286,16 +286,17 @@
                         </div>
 
                         <div class="media mt-4 px-1 text-md-left">
-                            <img class="card-img-100 d-flex z-depth-1 mr-3" src="/media/user.png">
+                            <img class="card-img-100 d-flex z-depth-1 mr-3" src="/media/user.png" alt="">
                             <div class="media-body">
                                 <h5 class="font-weight-bold mt-0">
                                     <div class="text-sea-color">{{ r.name }}</div>
                                 </h5>
-                                <div class="story">
-                                    {{ r.content }}
+                               <div class="block-reviews">
+                                    {{ r.content|safe }}
                                 </div>
                             </div>
                         </div>
+                        <a href="#" onclick="return false;" class="button-reviews">Показать блок</a>
                     {% endfor %}
                 </section>
             </div>

@@ -41,6 +41,7 @@ urlpatterns = [
     path('employees/', include('employees.url')),
     path('covidSpecialists', include('covidSpecialists.url')),
     path('registration/', include('regapp.url')),
+    path('regConf/', include('regConf.url')),
 
     path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]

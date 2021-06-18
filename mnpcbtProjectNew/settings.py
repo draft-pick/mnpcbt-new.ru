@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'employees.apps.EmployeesConfig',
     'covidSpecialists.apps.CovidspecialistsConfig',
     'regapp.apps.RegappConfig',
+    'regConf.apps.RegkonfConfig'
 ]
 
 MIDDLEWARE = [

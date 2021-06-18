@@ -4,19 +4,26 @@
     <hr>
     <span class="red-text">Подразделение:</span> {{ employee_item.units }}<br>
     <hr>
-{#    <span class="red-text">Филиал:</span> {{ employee_item.branch }}<br>#}
-    <hr>
     <span class="red-text">Образование:</span> {{ employee_item.formation }}<br>
-    <hr>
-    <span class="red-text">Специальность:</span> {{ employee_item.speciality }}<br>
-    <hr>
-    <span class="red-text">Категория:</span> {{ employee_item.category }}<br>
+    {% if employee_item.accreditation %}
+        <span class="red-text">Аккредитация:</span> {{ employee_item.accreditation }}<br>
+    {% endif %}
+    {% if employee_item.speciality %}
+        <hr>
+        <span class="red-text">Специальность по сертификату:</span> {{ employee_item.speciality }}<br>
+    {% endif %}
     {% if employee_item.degree %}
         <hr>
         <span class="red-text">Ученая степень:</span> {{ employee_item.degree }}<br>
-    {% elif employee_item.rank %}
+    {% endif %}
+    {% if employee_item.speciality_akk %}
         <hr>
-        <span class="red-text">Ученое звание:</span> {{ employee_item.rank }}<br>
+        <span class="red-text">Специальность по аккредитации:</span> {{ employee_item.speciality_akk }}<br>
+    {% endif %}
+
+    {% if employee_item.qualification %}
+        <hr>
+        <span class="red-text">Квалификационная категория:</span> {{ employee_item.qualification }}<br>
     {% endif %}
 
 {% endblock %}

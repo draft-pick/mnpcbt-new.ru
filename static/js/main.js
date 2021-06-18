@@ -300,3 +300,15 @@ $(document).ready(function(){
     }, 500);
   }
 // END PRELOADER
+
+$(document).ready(function(){
+    $('.button-reviews').click(function(){
+        $('.block-reviews').toggleClass('opener');
+        if (!$(this).data('status')) {
+            $(this).data('status', true).html('Скрыть');
+        } else {
+            $(this).data('status', false).html('Показать');
+        }
+    });
+
+});
