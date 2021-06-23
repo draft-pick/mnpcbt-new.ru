@@ -1,13 +1,58 @@
 {% extends 'baseReg.html' %}
 {% block content %}
-<div class="container">
-<form action="." method="POST">
-    {% csrf_token %}
-    {{ form_surname.as_p }}
-    {{ form_name.as_p }}
-    {{ form_patronymic.as_p }}
-    {{ form_school.as_p }}
-    <button type="submit">ok</button>
-</form>
-</div>
+    <div class="register">
+        <div class="row">
+            <div class="col-md-12 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Регистрация на IX конференцию московских фтизиатров</h3>
+                        <div class="row register-form">
+                            <div class="w-100 text-right mb-3">
+                                <h6>* - поля для обязательного заполнения</h6>
+                            </div>
+                            <div class="col-md-12">
+                                <form action="." method="POST">
+                                    <div class="row justify-content-around">
+                                        {% csrf_token %}
+                                        {{ form_surname }}
+                                        {{ form_name }}
+                                        {{ form_patronymic }}
+                                    </div>
+                                    {{ form_school }}
+                                    <div class="row justify-content-around">
+                                        {{ form_other }}
+                                    </div>
+
+
+                                    <div class="custom-control custom-checkbox w-100 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="defaultChecked2"
+                                               onchange="document.getElementById('submit').disabled = !this.checked;"/>
+                                        <label class="custom-control-label" for="defaultChecked2"> я принимаю <a target="_blank" href="/media/regConf/uslovie_peredachi.pdf">условия
+                                            передачи информации</a></label>
+                                        <br>
+                                        <input class="btn btn-primary" type="submit" disabled="disabled" name="submit"
+                                               id="submit"
+                                               value="Зарегистрироваться"/>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {#<div class="container">#}
+    {#<form action="." method="POST">#}
+    {#    {% csrf_token %}#}
+    {#    {{ form_surname.as_p }}#}
+    {#    {{ form_name.as_p }}#}
+    {#    {{ form_patronymic.as_p }}#}
+    {#    {{ form_school.as_p }}#}
+    {#    {{ form_other.as_p }}#}
+    {#    <button type="submit">ok</button>#}
+    {#</form>#}
+    {#</div>#}
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'baseReg.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3 mt-200">
+            <ul>
+                {% for sch in school %}
+                    <li><h3><a href="{{ sch.get_absolute_url }}">{{ sch.title }}</a></h3></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

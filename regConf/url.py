@@ -4,7 +4,8 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='regConf'),
-    # path('management/', all_list, name='all_list'),
+    path('management/', all_list, name='all_list'),
+    path('management/school/<int:school_id>/', view_school, name="view_school"),
     # path('management/user/<int:reg_id>/', view_reg, name="view_reg"),
     # path('management/school_1/', school_1, name="school_1"),
     # path('management/school_2/', school_2, name="school_2"),

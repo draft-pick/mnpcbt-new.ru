@@ -50,10 +50,22 @@ class regSurname(models.Model):
 
 class regName(models.Model):
     name = models.CharField(max_length=500, verbose_name='Имя')
-    surname_key = models.ForeignKey(regSurname, on_delete=models.CASCADE, related_name='name', verbose_name='Имя')
+    surname_key = models.ForeignKey(regSurname, on_delete=models.CASCADE, related_name='regsurname', verbose_name='Имя')
 
 
 class regPatronymic(models.Model):
     patronymic = models.CharField(max_length=500, verbose_name='Отчество')
     name_key = models.ForeignKey(regName, on_delete=models.CASCADE, related_name='patronymic',
                                  verbose_name='Отчество')
+
+
+class regOther(models.Model):
+    name_patronymic = models.ForeignKey(regPatronymic, on_delete=models.CASCADE, related_name='other',
+                                        verbose_name='Остальные поля')
+    place_job = models.CharField(max_length=500, verbose_name='Место работы')
+    position = models.CharField(max_length=500, verbose_name='Должность')
+    degree = models.CharField(blank=True, max_length=500, verbose_name='Ученая степень|Научное звание')
+    location = models.CharField(max_length=500, verbose_name='Регион')
+    phone_job = models.CharField(max_length=500, verbose_name='Рабочий телефон')
+    phone = models.CharField(blank=True, max_length=500, verbose_name='Телефон')
+    email = models.CharField(max_length=500, verbose_name='E-mail')
