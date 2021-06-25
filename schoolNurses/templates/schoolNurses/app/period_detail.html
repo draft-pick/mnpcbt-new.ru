@@ -1,0 +1,43 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+
+    {% if user.is_authenticated %}
+        {% if reg_list %}
+            Количество зарегистрированных - {{ reg_list.count }}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Отчество</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in reg_list %}
+                    <tr>
+                        <th>{{ user.surname }}</th>
+                        <th>{{ user.name }}</th>
+                        <th>{{ user.patronymic }}</th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            никто не зарегистрировался
+        {% endif %}
+
+    {% else %}
+{#        <label for="contract">#}
+{#            <select name="contract" id="">#}
+{#                <option value="" disabled selected>Выберите контракт</option>#}
+{#                {% for contracts in contracts_list %}#}
+{#                    <option value="{{ contracts.title }} {{ contracts.contract_date }}">{{ contracts.title }} {{ contracts.contract_date }}</option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+{#        </label>#}
+       <form action="" method="post">{% csrf_token %}
+                        {{ form_management.as_p }}
+                        <input type="submit" value="Добавить"/>
+                    </form>
+    {% endif %}
+{% endblock %}

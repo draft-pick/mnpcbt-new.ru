@@ -1,0 +1,8 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% for periods in all_periods %}
+        <a href="{{ periods.get_absolute_url }}">{{ periods.title }}
+        {{ periods.start_date }}
+        {{ periods.end_date }}</a>
+    {% endfor %}
+{% endblock %}
