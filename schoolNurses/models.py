@@ -55,6 +55,11 @@ class management(models.Model):
     title = models.CharField(max_length=255, verbose_name="Учреждение|Рук-ль группы")
     man_key_periods = models.ForeignKey(periods, on_delete=models.CASCADE, related_name='man_period_fk',
                                         verbose_name='Период')
+    man_key_contracts = models.ForeignKey(contracts, on_delete=models.CASCADE, related_name='man_contract_fk',
+                                          verbose_name='Контракт')
+
+    def __str__(self):
+        return self.title
 
 
 class form_registration(models.Model):

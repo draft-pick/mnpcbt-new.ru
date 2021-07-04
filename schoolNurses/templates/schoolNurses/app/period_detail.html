@@ -2,14 +2,16 @@
 {% block contentPage %}
 
     {% if user.is_authenticated %}
-        {% if reg_list %}
+        {% if management_list %}
             Количество зарегистрированных - {{ reg_list.count }}
+            <a href="{% url 'print_list'  period_detail.pk %}">Печать списка</a>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Фамилия</th>
                     <th scope="col">Имя</th>
                     <th scope="col">Отчество</th>
+                    <th scope="col">Учреждение|Рук-ль</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -18,26 +20,25 @@
                         <th>{{ user.surname }}</th>
                         <th>{{ user.name }}</th>
                         <th>{{ user.patronymic }}</th>
+                        <th>{{ user.reg_key_management }}</th>
+
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         {% else %}
-            никто не зарегистрировался
+            <h2 class="red-text">Список пуст</h2>
         {% endif %}
 
     {% else %}
-{#        <label for="contract">#}
-{#            <select name="contract" id="">#}
-{#                <option value="" disabled selected>Выберите контракт</option>#}
-{#                {% for contracts in contracts_list %}#}
-{#                    <option value="{{ contracts.title }} {{ contracts.contract_date }}">{{ contracts.title }} {{ contracts.contract_date }}</option>#}
-{#                {% endfor %}#}
-{#            </select>#}
-{#        </label>#}
-       <form action="" method="post">{% csrf_token %}
-                        {{ form_management.as_p }}
-                        <input type="submit" value="Добавить"/>
-                    </form>
+        {% for contracts in contracts_list %}
+            {{ contracts.title }}
+        {% endfor %}
+        <form action="" method="post">{% csrf_token %}
+            <hr>
+            {{ form_management.as_p }}
+            {{ form_reg.as_p }}
+            <input type="submit" value="Добавить"/>
+        </form>
     {% endif %}
 {% endblock %}

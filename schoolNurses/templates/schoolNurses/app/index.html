@@ -1,8 +1,15 @@
 {% extends 'inc/_containerPage.html' %}
 {% block contentPage %}
-    {% for periods in all_periods %}
-        <a href="{{ periods.get_absolute_url }}">{{ periods.title }}
-        {{ periods.start_date }}
-        {{ periods.end_date }}</a>
-    {% endfor %}
+    <h3 class="text-center">«Организация и проведение иммунодиагностики туберкулеза у детей и взрослых, вакцинопрофилактики туберкулеза у
+        детей»</h3>
+    <div class="row text-center">
+        {% for periods in all_periods %}
+            <div class="card col-12 col-md-3 offset-md-2 p-3 text-center mb-3">
+                <a href="{{ periods.get_absolute_url }}">
+                    <h5>Дата обучения</h5>
+                    <div class="red-text">{{ periods.start_date }} - {{ periods.end_date }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -1,7 +1,34 @@
-{% extends 'inc/_containerPage.html' %}
-{% block contentPage %}
-<form action="" method="post">{% csrf_token %}
-                        {{ form_management.as_p }}
-                        <input type="submit" value="Добавить"/>
-                    </form>
-{% endblock %}
+{#{% for man in management_set %}#}
+{#    {{ man.title }} от {{ man.man_key_contracts.contract_date }} № {{ man.man_key_contracts.title }}#}
+{#    {% for m in man.reg_management_fk.all %}#}
+{#        {{ m.surname }} {{ m.name }}#}
+{#    {% endfor %}#}
+{#    <hr>#}
+{#{% endfor %}#}
+{#    {% for cs in contract_set %}#}
+{#        {% for c in cs.reg_contract_fk.all %}#}
+{#            {{ c.surname}} {{ c.reg_key_management.title }}#}
+{#        {% endfor %}#}
+{#    {% endfor %}#}
+{#<hr>#}
+{% for mi in management_item %}
+    {{ mi.title }} от {{ mi.man_key_contracts.contract_date }} {{ mi.man_key_contracts.title }}<br>
+    Список:<br>
+    {% if mi.title == 'Физическое лицо' %}
+        {% for si in student_item %}
+            {% if mi.title == 'Физическое лицо' %}
+                {{ si.surname }}<br>
+            {% endif %}
+        {% endfor %}
+
+    {% else %}
+        {% for si in student_item %}
+            {% if mi.man_key_contracts.pk == si.reg_key_contract.pk %}
+                {{ forloop.counter }}<br>{{ si.surname }}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <hr>
+{% endfor %}
+
+
