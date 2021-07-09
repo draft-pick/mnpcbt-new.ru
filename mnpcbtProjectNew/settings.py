@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y0-uv=knym2el10@)t*km+(ehdc!=#9jfk&(qu-6$a#*2&n&nm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'mnpcbt-new.ru', 'www.mnpcbt-new.ru']
 
