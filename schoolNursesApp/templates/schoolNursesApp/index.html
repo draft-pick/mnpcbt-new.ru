@@ -1,0 +1,9 @@
+<h2>«Организация и проведение иммунодиагностики туберкулеза у детей и взрослых, вакцинопрофилактики туберкулеза у
+    детей»</h2>
+{% for periods in all_periods %}
+    <a href="{{ periods.get_absolute_url }}">
+        {{ periods.start_date }} - {{ periods.end_date }}
+    </a>
+    <hr>
+{% endfor %}
+

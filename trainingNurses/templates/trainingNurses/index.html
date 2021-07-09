@@ -1,0 +1,43 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% if user.is_authenticated %}
+        <h3 class="text-center mt-5 mb-3">
+            «Организация и проведение иммунодиагностики туберкулеза у детей и взрослых, вакцинопрофилактики туберкулеза
+            у детей»
+        </h3>
+        <div class="row">
+        {% for period in period_view %}
+            <div class="col-12 col-md-4 p-2">
+                <div class="card d-flex justify-content-center p-3">
+                    <a href="{{ period.pk }}">{{ period.start_date }} - {{ period.end_date }}</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        {% if search_query %}
+            {% for contract in contracts %}
+                <div class="w-100 text-center">
+                    <h3 class="mt-5 mb-3">Выберете номер контракта:</h3>
+                    <h3><a class="pink-text" href="{{ contract.get_absolute_url }}">{{ contract.title }}</a></h3>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3 class="mt-5 mb-3 text-center">Вставьте номер контракта, полученный по электронной почте.</h3>
+            <form class="form-inline my-2 my-lg-0" action="">
+                <div class="row w-100">
+                    <div class="col-12 col-md-6 offset-md-3">
+                        <div class="md-form input-with-post-icon">
+                            <input type="search" id="suffixInside" class="form-control" aria-label="Search"
+                                   name="search">
+                            <label for="suffixInside">№ контракта </label>
+                        </div>
+                        <div class="w-100 text-center">
+                            <button class="btn btn-info btn-rounded" type="submit">Продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        {% endif %}
+    {% endif %}
+{% endblock %}

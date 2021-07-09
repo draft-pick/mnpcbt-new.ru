@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     'covidSpecialists.apps.CovidspecialistsConfig',
     'regapp.apps.RegappConfig',
     'regConf.apps.RegkonfConfig',
-    'schoolNursesApp.apps.SchoolnursesappConfig'
+    'schoolNursesApp.apps.SchoolnursesappConfig',
+    'trainingNurses.apps.TrainingnursesConfig'
 ]
 
 MIDDLEWARE = [

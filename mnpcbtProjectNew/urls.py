@@ -43,6 +43,7 @@ urlpatterns = [
     path('registration/', include('regapp.url')),
     path('regConf/', include('regConf.url')),
     path('schoolNursesApp/', include('schoolNursesApp.url')),
+    path('trainingNurses/', include('trainingNurses.url')),
 
     path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]

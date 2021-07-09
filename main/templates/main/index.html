@@ -16,17 +16,56 @@
                     <!--Grid column-->
                     <div class="col-md-6 mb-4 d-none d-md-block">
                         <div class="position-absolute z-index-norm">
-                            <div class="left-mm p-md-2 ml-md-3">
-                                <ul class="navbar-nav mr-auto">
-                                    {% sitetree_menu from "leftMenu" include "trunk" template "sitetree/menu_bootstrap4.html" %}
-                                </ul>
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"
-                                           data-target="#fullHeightModalRight"> Письмо в администрацию Центра</a>
-                                    </li>
-                                </ul>
+                            <div class="left-menu">
+                                <div class="row w-75">
+                                    <div class="col-6 px-4 py-2 text-center">
+                                        <a href="{% url 'news' %}">
+                                            <div class="card d-flex justify-content-center">Новости <br> и мероприятия
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 px-4 py-2 text-center">
+                                        <a href="/regularPages/7/">
+                                            <div class="card d-flex justify-content-center">Страница <br> главного
+                                                фтизиатра
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 px-4 py-2 text-center">
+                                        <a target="_blank" href="https://mnpcbt.ru/otzyvy-patsientov/">
+                                            <div class="card d-flex justify-content-center">Отзывы <br> пациентов
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 px-4 py-2 text-center">
+                                        <a href="#" class="waves-effect waves-light" data-toggle="modal"
+                                           data-target="#fullHeightModalRight">
+                                            <div class="card d-flex justify-content-center">
+                                                Письмо в <br> &nbsp;администрацию Центра&nbsp;
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 px-4 py-2 text-center">
+                                        <a href="/regularPages/11/">
+                                            <div class="card d-flex justify-content-center">Эпидемиологическая ситуация
+                                                по
+                                                туберкулезу <br> в г. Москве
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                            {#                            <div class="left-mm p-md-2 ml-md-3">#}
+                            {#                                <ul class="navbar-nav mr-auto">#}
+                            {#                                    {% sitetree_menu from "leftMenu" include "trunk" template "sitetree/menu_bootstrap4.html" %}#}
+                            {#                                </ul>#}
+                            {#                                <ul class="navbar-nav mr-auto">#}
+                            {#                                    <li class="nav-item">#}
+                            {#                                        <a href="#" class="nav-link waves-effect waves-light" data-toggle="modal"#}
+                            {#                                           data-target="#fullHeightModalRight"> Письмо в администрацию Центра</a>#}
+                            {#                                    </li>#}
+                            {#                                </ul>#}
+                            {#                            </div>#}
                         </div>
 
                         <div class="row d-none d-md-block">
@@ -57,13 +96,16 @@
                                                 8-499-268-25-00
                                             </li>
                                             <br>
-                                            <li class="list-group gray-dark-text py-0 py-md-1">Отдел делопроизводства:<br>
+                                            <li class="list-group gray-dark-text py-0 py-md-1">Отдел
+                                                делопроизводства:<br>
                                                 8-499-785-25-14
                                             </li>
                                             <br>
-                                            <li class="list-group gray-dark-text py-0 py-md-1">Факс:<br> 8-499-785-20-82</li>
+                                            <li class="list-group gray-dark-text py-0 py-md-1">Факс:<br> 8-499-785-20-82
+                                            </li>
                                             <br>
-                                            <li class="list-group pink-text py-0 py-md-1">Горячая линия психологической помощи:<br>
+                                            <li class="list-group pink-text py-0 py-md-1">Горячая линия психологической
+                                                помощи:<br>
                                                 8-999-353-79-80
                                             </li>
                                             <br>
@@ -98,8 +140,9 @@
                                 {% endif %}
                                 >
                                     <div class="card text-center d-flex justify-content-center anons_know text-white">
-                                        <img class="anons_know-icon" src="/media/icons/main_page/pattern-know.svg" alt="">
-                                            {{ know.title }}
+                                        <img class="anons_know-icon" src="/media/icons/main_page/pattern-know.svg"
+                                             alt="">
+                                        {{ know.title }}
                                     </div>
                                 </a>
                             </div>
@@ -173,9 +216,11 @@
                             <div class="col-12 col-md-8">
                                 <div class="row">
                                     {% for i in news %}
+                                        
                                         <div class="col-12 col-md-6 mb-3">
                                             <div class="row">
                                                 <div class="col-5 avatar w-100">
+                                                    <a href="{{ i.get_absolute_url }}">
                                                     {% if i.image_title %}
                                                         <img class="img-fluid rounded z-depth-1"
                                                              src="{{ i.image_title.url }}" alt="">
@@ -184,12 +229,15 @@
                                                              src="/media/no_image.jpg"
                                                              alt="">
                                                     {% endif %}
+                                                    </a>
                                                     <div class="pink-text text-center">{{ i.created_at|date:"d E Y" }}</div>
                                                 </div>
                                                 <div class="col-7 pr-0 pl-0">
+                                                    <a href="{{ i.get_absolute_url }}">
                                                     <p class="text-muted">
                                                         {{ i.title }}
                                                     </p>
+                                                        </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -291,7 +339,7 @@
                                 <h5 class="font-weight-bold mt-0">
                                     <div class="text-sea-color">{{ r.name }}</div>
                                 </h5>
-                               <div class="block-reviews">
+                                <div class="block-reviews">
                                     {{ r.content|safe }}
                                 </div>
                             </div>

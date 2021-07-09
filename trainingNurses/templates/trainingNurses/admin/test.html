@@ -1,0 +1,20 @@
+{{ start_date }} - {{ end_date }}
+<hr>
+{% for ms in management_set %}
+    <h5>{{ ms.title }} от {{ ms.man_key_contracts.contract_date }} № {{ ms.man_key_contracts.title }}</h5>
+    <ul>
+        {% for m in ms.per_managementNurses_fk.all %}
+            <li>{{ num_person }} - {{ m.surname }} {{ m.name }} {{ m.patronymic }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+<h5>Физические лица</h5>
+<ul>
+    {% for person in person_view %}
+        {% if not person.per_key_management %}
+            <li>{{ num_person }} - {{ person.surname }} {{ person.name }} {{ person.patronymic }}
+                от {{ person.per_key_contract.contract_date }} № {{ person.per_key_contract.title }}</li>
+        {% endif %}
+    {% endfor %}
+
+</ul>

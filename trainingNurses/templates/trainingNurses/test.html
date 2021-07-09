@@ -1,0 +1,40 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% if user.is_authenticated %}
+        админ
+    {% else %}
+        Вы выбрали: № контракта - {{ contract_view.title }}
+        {% if type_fiz %}
+            <span class="pink-text"><i class="fas fa-long-arrow-alt-right"></i></span> Физическое лицо
+        {% elif type_org %}
+            <span class="pink-text"><i class="fas fa-long-arrow-alt-right"></i></span> Учреждение | Организатор группы
+        {% endif %}
+        <hr>
+        {% if type_org %}
+            <form action="" method="post">{% csrf_token %}
+                {{ management_form.as_p }}
+                <input type="submit" value="Продолжить"/>
+            </form>
+        {% elif type_fiz %}
+            <form action="" method="post">{% csrf_token %}
+                {{ person_form.as_p }}
+                {#            {% for pf in person_form %}#}
+                {#                <div class="md-form">#}
+                {#                    <label for="">{{ pf.label }}</label>#}
+                {#                    {{ pf }}#}
+                {#                </div>#}
+                {#            {% endfor %}#}
+                <input type="submit" value="Сохранить"/>
+            </form>
+        {% else %}
+            <form class="w-100 text-center" action="#">
+                <h3 class="mt-5 mb-3">Выберете тип:</h3>
+                <p><input name="fiz" type="radio" value="1"> Физическое лицо</p>
+                <p><input name="uch_org" type="radio" value="2"> Учреждение | Организатор группы</p>
+                <div class="w-100 text-center">
+                    <button class="btn btn-info btn-rounded" type="submit">Продолжить</button>
+                </div>
+            </form>
+        {% endif %}
+    {% endif %}
+{% endblock %}

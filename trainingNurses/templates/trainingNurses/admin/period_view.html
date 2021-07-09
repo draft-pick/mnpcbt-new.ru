@@ -1,0 +1,31 @@
+{% extends 'inc/_containerPage.html' %}
+{% block contentPage %}
+    {% if user.is_authenticated %}
+        <h3 class="mt-5 mb-3">{{ period_view.start_date }} - {{ period_view.end_date }}</h3>
+        <a href="{% url 'list_credits' period_view.pk %}">
+            <button type="button" class="btn btn-info btn-rounded">Печать "Список зачисляемых"</button>
+        </a><br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Отчество</th>
+                <th scope="col">№ контракта</th>
+                <th scope="col">Учреждение|Орг. группы</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in persons %}
+                <tr>
+                    <th>{{ person.surname }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.patronymic }}</td>
+                    <td>{{ person.per_key_contract.title }}</td>
+                    <td>{{ person.per_key_management.title }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
